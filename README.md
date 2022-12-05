@@ -10,7 +10,7 @@
 
 ## Models and Database Design
 -	For now, there will be one Model that I will create that will interact with the built-in User Model. There will be a Reading Model. In this case a User will have many Readings they can access, update, and delete (One-to-Many relationship). This will all be in a database using PSQL. 
--	
+
 ## Styling, Presentation, and Site Navigation
 -	It will not be as ugly as other sites because I will use CSS and bootstrap. 
 

@@ -22,5 +22,15 @@ h1 {
 }
 
 .CM-navbar {
-  background-color: #9db9f6a1;
+  background-color: #DFE3FF;
+  border: 3px solid rgba(0, 0, 0, 0.38);
+}
+
+.CM-banner {
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+.home-row {
+  max-width: 100%;
 }

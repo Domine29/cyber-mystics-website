@@ -1,7 +1,10 @@
 import React from 'react'
+import SpreadShuffle from '../components/SpreadShuffle'
 
 export default function ReadingsPage() {
   return (
-    <div>This is the Readings Page</div>
+    <>
+      {/* <SpreadShuffle />  */}
+    </>
   )
 }

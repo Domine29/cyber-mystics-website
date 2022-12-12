@@ -6,7 +6,7 @@ export default function RootLayout() {
 
   return (
     <>
-      <img src='/static/cards/CM-banner.png' />
+      <img src='/static/images/CM-banner.jpg' className='CM-banner'/>
       <MainNavigation />
       <main>
         <Outlet />

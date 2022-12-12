@@ -1,0 +1,16 @@
+import { Outlet } from 'react-router-dom'
+import MainNavigation from '../components/MainNavigation';
+
+
+export default function RootLayout() {
+
+  return (
+    <>
+      <img src='/static/cards/CM-banner.png' />
+      <MainNavigation />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+}

@@ -16,7 +16,6 @@ export default function CardCarousel(props) {
       className="card-carousel"
     >
       {props.cards && shuffledItems.map(card => {
-        console.log(card)
         return(
           <Carousel.Item>
             <img src={`/static/cards/${card.fields.img}`} alt={card.fields.name} className='tarot-imgs'/>

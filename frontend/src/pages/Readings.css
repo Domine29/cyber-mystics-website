@@ -1,0 +1,25 @@
+.tarot-shuffle {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.654);
+  border-radius: 2%;
+  height: 25em;
+  width: auto;
+  border: 3px solid #CEBCA3;
+  display: inline-flex;
+  position: absolute;
+  z-index: 1;
+}
+
+.select-spread-form {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+
+
+

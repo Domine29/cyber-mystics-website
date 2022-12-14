@@ -30,7 +30,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/readings',
-        element: <ReadingsPage />
+        element: <ReadingsPage />,
+        loader: cardLoader
       },
       {
         path: '/login',

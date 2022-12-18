@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 
 export default function SignUpForm() {
+  const [isSignedUp, setIsSignedUp] = useState(false)
 
-   async function signUp(event) {
+   function signUpUser(event, response) {
     event.preventDefault()
     const form = event.target
     const email = form.elements.email.value
     const password = form.elements.password.value
-    await axios.post('/api/signUp', {'email': email, 'password': password})
+    
+    axios.post('/api/signUp', {'email': email, 'password': password})
+      .then(response => {
+        setIsSignedUp(response.data.success)
+      } )
    }
 
   return (
     <>
-      <Form onSubmit={signUp} id="signup-form">
+      <Form onSubmit={signUpUser} id="signup-form">
         <Form.Group className="mb-3" controlId="form-signup-Email">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Email Address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" name="email"/>
         </Form.Group>
+        {isSignedUp && <p className="signup-welcome">Thank You for signing up!</p>}
 
         <Form.Group className="mb-3" controlId="form-signup-Password">
           <Form.Label>Password</Form.Label>

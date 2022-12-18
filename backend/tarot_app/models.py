@@ -30,7 +30,8 @@ class CardInSpread(models.Model):
 
 class Note(models.Model):
     card_in_spread = models.ForeignKey(CardInSpread, on_delete=models.CASCADE)
-    content = models.TextField()
+    description = models.TextField()
+    interpretation = models.TextField()
 
 class OverallNote(models.Model):
     spread = models.ForeignKey(Spread, on_delete=models.CASCADE)

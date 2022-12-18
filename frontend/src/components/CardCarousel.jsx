@@ -1,6 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
-import './CardCarousel.css'
+import '../pages/Home.css'
 import _ from 'lodash';
 
 export default function CardCarousel(props) {

@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage, {loader as cardLoader} from './pages/Home'
-import ReadingsPage from './pages/Readings'
-import AboutPage from './pages/About'
+import ReadingsPage from './components/Readings'
 import NotesPage from './pages/Notes'
 import RootLayout from './pages/RootLayout'
 import Login from './pages/Login'
@@ -11,19 +10,21 @@ import './index.css'
 import axios from 'axios'
 
 
+export async function userLoader() {
+  let res = await axios.get('api/user')
+  let user = res.data
+  return { user };
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    loader: userLoader,
     children: [
       { index: true, 
         element: <HomePage />,
         loader: cardLoader
-      },
-      {
-        path: '/about',
-        element: <AboutPage />
       },
       {
         path: '/notes',
@@ -46,25 +47,8 @@ const router = createBrowserRouter([
   }
 ])
 
-function App() {
 
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-    return cookieValue;
-  }
-  const csrftoken = getCookie('csrftoken');
-  axios.defaults.headers.common["X-CSRFToken"]=csrftoken
+function App() {
 
   return (
     <RouterProvider router={router} />

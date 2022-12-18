@@ -4,7 +4,6 @@ import SignUpForm from "../components/SignUpForm";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import './Login.css'
-import axios from 'axios'
 
 export default function Login() {
 

@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from tarot_app.models import *
 from rest_framework.decorators import api_view
 from django.core import serializers
+from django.contrib.auth import authenticate, login, logout
+from rest_framework.response import Response
 
 def index(request):
     theIndex = open('static/index.html').read()
@@ -17,14 +19,48 @@ def load_cards(request):
 
 @api_view(["POST"])
 def register_user(request):
-    SiteUser.objects.filter(pk=1).delete()
     if request.method == "POST":
         email = request.data['email']
         password = request.data['password']
         try:
-            # SiteUser.objects.create(email=email, password=password)
-            SiteUser.objects.filter(email='test@test').delete()
-            return JsonResponse({'success': True})
+            SiteUser.objects.create_user(email=email, password=password, username=email)
+            return Response({'success': True})
         except Exception as e:
             print(e)
             return JsonResponse({'signup': False})
+
+@api_view(["POST"])
+def login_user(request):
+    if request.method == "POST":
+        email = request.data['email']
+        password = request.data['password']
+        user = authenticate(username=email, password=password)
+        if user is not None:
+            try:
+                login(request._request, user)
+                print(request.session)
+                return JsonResponse({'success': True})
+            except Exception as e:
+                print(e)
+                return JsonResponse({'logout': False})
+        return JsonResponse({'logout': False})
+
+def logout_user(request):
+    try:
+        logout(request)
+        return JsonResponse({'logout' : True})
+    except Exception as e:
+        print(e)
+        return JsonResponse({'logout' : False})
+
+@api_view(["GET"])
+def current_user(request):
+    if request.user.is_authenticated:
+        data = {request.user}
+        return HttpResponse(data)
+    else:
+        return JsonResponse(None, safe=False)
+
+@api_view(["POST"])
+def get_reading(request):
+    pass

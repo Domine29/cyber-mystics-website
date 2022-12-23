@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     loader: userLoader,
     children: [
       { index: true, 
-        element: <HomePage />,
+        element: <HomePage user={userLoader}/>,
         loader: cardLoader
       },
       {

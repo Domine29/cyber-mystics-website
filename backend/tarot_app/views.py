@@ -63,4 +63,8 @@ def current_user(request):
 
 @api_view(["POST"])
 def get_reading(request):
-    pass
+    card = request.data['card'] 
+    orientation = request.data['orientation']
+    user = request.user
+    print(bool(user))
+    return JsonResponse({'success' : True})

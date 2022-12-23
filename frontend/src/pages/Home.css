@@ -4,9 +4,12 @@
   height: 25em;
   width: auto;
   border: 3px solid #CEBCA3;
-  display: inline-flex;
   position: absolute;
   z-index: 1;
+}
+
+#card-orientation {
+  transform: scaleY(-1)
 }
 
 .select-spread-form {
@@ -14,10 +17,9 @@
   display: inline-block;
 }
 
-.cards-container {
+.card-shuffle {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
 
 .tarot-imgs {

@@ -1,6 +1,8 @@
 import { Outlet, useLoaderData } from 'react-router-dom'
 import MainNavigation from '../components/MainNavigation';
+import './Root.css'
 import axios from 'axios';
+
 
 
 export default function RootLayout() {
@@ -28,8 +30,8 @@ export default function RootLayout() {
     <>
       <img src='/static/images/CM-banner.jpg' className='CM-banner'/>
       <MainNavigation user={user}/>
-      <main>
-        <Outlet />
+      <main className='main'>
+        <Outlet user={user}/>
       </main>
     </>
   );

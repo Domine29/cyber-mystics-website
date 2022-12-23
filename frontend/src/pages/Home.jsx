@@ -13,12 +13,12 @@ export async function loader() {
   return { cards };
 }
 
-export default function HomePage() {
+export default function HomePage(props) {
   const { cards } = useLoaderData();
   const [isShuffled, setIsShuffled] = useState(0);
 
   return (
-    <div>
+    <div className="main">
       <br />
       {!isShuffled ? (
         <Row className="home-row">
@@ -43,7 +43,7 @@ export default function HomePage() {
           </Col>
         </Row>
       ) : (
-        <Readings isShuffled={isShuffled} cards={cards} setIsShuffled={setIsShuffled}/>
+        <Readings user={props.user} isShuffled={isShuffled} cards={cards} setIsShuffled={setIsShuffled}/>
       )}
     </div>
   );

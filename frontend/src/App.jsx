@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage, {loader as cardLoader} from './pages/Home'
 import ReadingsPage from './components/Readings'
-import NotesPage from './pages/Notes'
+import NotesPage, {loader as notesLoader} from './pages/Notes'
 import RootLayout from './pages/RootLayout'
 import Login from './pages/Login'
 import Cards from './pages/Cards'
@@ -28,7 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/notes',
-        element: <NotesPage />
+        element: <NotesPage />,
+        loader: notesLoader
       },
       {
         path: '/readings',

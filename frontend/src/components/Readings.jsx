@@ -8,7 +8,7 @@ export default function Readings(props) {
     <>
         {
           props.isShuffled 
-          ? <SpreadShuffle cards={props.cards} isShuffled={props.isShuffled} setIsShuffled={props.setIsShuffled} user={props.user}/> 
+          ? <SpreadShuffle cards={props.cards} isShuffled={props.isShuffled} setIsShuffled={props.setIsShuffled} user={props.user} setSpreadData={props.setSpreadData}/> 
           : <></>
         }
            

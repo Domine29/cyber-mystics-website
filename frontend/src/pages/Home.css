@@ -1,7 +1,7 @@
 .tarot-shuffle {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.654);
   border-radius: 2%;
-  height: 25em;
+  height: 18em;
   width: auto;
   border: 3px solid #CEBCA3;
   position: absolute;
@@ -20,6 +20,7 @@
 .card-shuffle {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .tarot-imgs {
@@ -41,6 +42,59 @@
   margin-right: auto;
 }
 
+.spread-note-container {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.note-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-line {
+  width: 3px;
+  height: 85%;
+  background-color: black;
+}
+
+.note-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 500px;
+}
+
+.upright {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.654);
+  border-radius: 2%;
+  border: 3px solid rgba(0, 0, 0, 0.069);
+  height:32em;
+  width: auto;
+}
+
+.reversed {
+  box-shadow: -10px -10px 5px 0px rgba(0, 0, 0, 0.654);
+  border-radius: 2%;
+  border: 3px solid rgba(0, 0, 0, 0.069);
+  height:32em;
+  width: auto;
+  transform: rotate(180deg);
+}
+
+.guidance-content {
+  padding-bottom: 10%;
+  text-transform: capitalize;
+  list-style-type:circle;
+  width: 400px
+}
+
+.cat-img {
+  width: 100%;
+  height: auto;
+}
 
 
 

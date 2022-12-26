@@ -5,14 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 const logout = async() => {
-  let res = await axios.post('/api/logout')
+  await axios.post('/api/logout')
   window.location.reload()
   }
 
 function userLogoutRender(user){
   return(
     <Navbar.Collapse className="justify-content-end">
-       <Navbar.Text>{user}</Navbar.Text>
+       <Navbar.Text style={{paddingRight: '.5rem'}}>{user}</Navbar.Text>
        <Button onClick={logout}>Logout</Button>
     </Navbar.Collapse>
    
@@ -28,7 +28,7 @@ function MainNavigation(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/notes">Notes</Nav.Link>
+             { props.user && <Nav.Link href="/notes">Notes</Nav.Link> }       
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

@@ -5,23 +5,19 @@ import axios from 'axios'
 
 export default function SpreadShuffle(props) {
 
-  // const cards = document.querySelectorAll(".tarot-shuffle");
-  // const [isHover, isSetHover] = useState(0); need to figure a way to give the user feedback on which card their mouse is on and which ones they have selected.
-
   const shuffledItems = _.shuffle(props.cards.data);
-  const [cardOrientation, setcardOrientation] = useState(false) // false is upright in this case. 
 
 
   async function handleOnClick(e) {
     const cardName = e.target.alt
-    const reversed = Boolean(e.target.id)
+    let isReversed = Boolean(e.target.id)
 
-    if(!reversed){
-      reversed = false
+    if(!isReversed){
+      isReversed = false
     }
     
-    const res = await axios.post('/api/reading', {card: cardName, orientation: reversed})
-    console.log(res)
+    const res = await axios.post('/api/reading', {card: cardName, reverse: isReversed})
+    props.setSpreadData(res.data)
   }
 
 

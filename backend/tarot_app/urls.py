@@ -8,8 +8,8 @@ urlpatterns = [
     path('api/logout', views.logout_user),
     path('api/user', views.current_user),
     path('api/reading', views.get_reading),
-    # path('api/token/', TokenObtainPairView.as_view()),        look further into using JSON Web Tokens (JWTs) for sessions
-    # path('api/token/refresh/', TokenRefreshView.as_view()),
-    # path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/note', views.update_note),
+    path('api/notes', views.get_user_notes),
+    path('api/third_party', views.third_party_api),
     re_path(r'.*', views.index),
 ]

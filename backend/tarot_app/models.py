@@ -3,6 +3,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.db.models import JSONField
 from django.contrib.auth.models import AbstractUser
 
+
 class SiteUser(AbstractUser):
     email = models.EmailField(max_length = 100, unique = True)
     USERNAME_FIELD = 'email'
@@ -21,12 +22,14 @@ class TarotCard(models.Model):
 class Spread(models.Model):
     user = models.ForeignKey(SiteUser, on_delete=models.CASCADE)
     type = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
 
 class CardInSpread(models.Model):
     spread = models.ForeignKey(Spread, on_delete=models.CASCADE)
     tarot_card = models.ForeignKey(TarotCard, on_delete=models.CASCADE)
     position = models.IntegerField()
-    orientation = models.TextField()
+    reverse = models.BooleanField()
 
 class Note(models.Model):
     card_in_spread = models.ForeignKey(CardInSpread, on_delete=models.CASCADE)

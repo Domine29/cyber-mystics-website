@@ -27,22 +27,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/notes',
-        element: <NotesPage />,
-        loader: notesLoader
-      },
-      {
-        path: '/readings',
-        element: <ReadingsPage />,
-        loader: cardLoader
+        element: <NotesPage />
       },
       {
         path: '/login',
         element: <Login />
       },
-      {
-        path: '/cards',
-        element: <Cards />
-      }
     ]
   }
 ])

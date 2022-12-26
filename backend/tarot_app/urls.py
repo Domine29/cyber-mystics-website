@@ -9,7 +9,8 @@ urlpatterns = [
     path('api/user', views.current_user),
     path('api/reading', views.get_reading),
     path('api/note', views.update_note),
-    path('api/notes', views.get_user_notes),
+    path('api/notes/<int:number>', views.get_user_notes),
     path('api/third_party', views.third_party_api),
+    path('api/notes/delete_spread/<int:spread_id>', views.delete_spread),
     re_path(r'.*', views.index),
 ]

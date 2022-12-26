@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getAllCards } from "../utils/tarot_app";
 import { useLoaderData } from "react-router-dom";
 import CardCarousel from "../components/CardCarousel";

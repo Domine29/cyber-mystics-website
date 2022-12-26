@@ -26,10 +26,9 @@ def register_user(request):
         password = request.data['password']
         try:
             SiteUser.objects.create_user(email=email, password=password, username=email)
-            return Response({'success': True})
+            return JsonResponse({'success': True})
         except Exception as e:
-            print(e)
-            return JsonResponse({'signup': False})
+            return HttpResponse("A user with that email already exists.", status=409)
 
 @api_view(["POST"])
 def login_user(request):
@@ -37,6 +36,7 @@ def login_user(request):
         email = request.data['email']
         password = request.data['password']
         user = authenticate(username=email, password=password)
+        print(user)
         if user is not None:
             try:
                 login(request._request, user)
@@ -44,8 +44,8 @@ def login_user(request):
                 return JsonResponse({'success': True})
             except Exception as e:
                 print(e)
-                return JsonResponse({'logout': False})
-        return JsonResponse({'logout': False})
+                return (HttpResponse("Invalid Credentials", status=401))
+        return (HttpResponse("Invalid Credentials", status=401))
 
 def logout_user(request):
     try:
@@ -129,13 +129,16 @@ def third_party_api(request):
     return HttpResponse(response_data)
 
 @api_view(["GET"])
-def get_user_notes(request):
+def get_user_notes(request, number):
     if request.user.is_authenticated:
         user = SiteUser.objects.get(username=request.user)
 
         spreads = Spread.objects.filter(user=user).order_by('-date_created')
 
-        active_spread = spreads[0]
+        if not spreads:
+            return (HttpResponse("No user spreads created", status=404))
+
+        active_spread = spreads[number]
         card_in_spread = CardInSpread.objects.get(spread=active_spread.pk)
         card = card_in_spread.tarot_card
         active_note = Note.objects.get(card_in_spread=card_in_spread)
@@ -144,8 +147,9 @@ def get_user_notes(request):
         spreads_length = len(spreads)
 
         data = {
-            'number of notes': spreads_length,
-            'card_name': card.name,
+            'spread_id': active_spread.pk,
+            'number_of_notes': spreads_length,
+            'tarot_name': card.name,
             'position': card_in_spread.position,
             'reverse': card_in_spread.reverse,
             'img': card.img,
@@ -161,3 +165,10 @@ def get_user_notes(request):
         return HttpResponse(response_data)
 
     return JsonResponse({'success': False})
+
+@api_view(["DELETE"])
+def delete_spread(request, spread_id): 
+    spread_to_delete = Spread.objects.get(pk=spread_id)
+    spread_to_delete.delete()
+    
+    return JsonResponse({'success': True})

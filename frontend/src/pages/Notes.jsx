@@ -1,19 +1,43 @@
-import { getAllUserNotes } from "../utils/tarot_app";
-import Pagination from 'react-bootstrap/Pagination';
-import { useLoaderData } from "react-router-dom";
-
-export async function loader() {
-  const notes = await getAllUserNotes();
-  return { notes };
-}
+import SpreadNote from "../components/SpreadNote";
+import "./Notes.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function NotesPage() {
-  const { notes } = useLoaderData();
-  console.log(notes)
+  const [isNotesPage, setIsNotesPage] = useState(true)
+  const [currentNote, setCurrentNote] = useState(0)
+  const [noteData, setNoteData] = useState(null)
+
+
+  function getUserNotes() {
+    let note = currentNote
+    axios.get(`api/notes/${note}`)
+      .then((response) => {
+        setNoteData(response.data)
+      })
+      .catch(error => window.location.replace('/'))
+    }
+  
+
+  const handleClick = () => {
+    const spread_to_delete = noteData.spread_id;
+    axios
+      .delete(`api/notes/delete_spread/${spread_to_delete}`)
+      .then((response) => {
+        if (response.data.success) {
+          setCurrentNote(0)
+          window.location.reload();
+        }
+      });
+  };
+
+  useEffect(() => {
+    getUserNotes();
+  }, [currentNote, noteData]);
 
   return (
-    <div>
-       {/* <Pagination size="lg">{items}</Pagination> */}
+    <div className="notes-page">
+      {Boolean(noteData) && <SpreadNote spreadData={noteData} handleClick={handleClick} isNotesPage={isNotesPage} setCurrentNote={setCurrentNote} currentNote={currentNote}/>}
     </div>
-  )
+  );
 }

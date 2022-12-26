@@ -5,7 +5,7 @@ export async function getAllCards(response) {
   return cards 
 }
 
-export async function getAllUserNotes(response) {
-  const cards = await axios.get('api/notes')
+export async function getAllUserNotes(response, currentNote) {
+  const cards = await axios.get(`api/notes/${currentNote}`)
   return cards 
 }

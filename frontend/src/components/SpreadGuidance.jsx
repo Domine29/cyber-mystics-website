@@ -29,8 +29,10 @@ export default function SpreadGuidance(props) {
         </ul>
         <li></li>
       </ul>
-        <Button onClick={getInspiration}>Inspiration</Button>
+        <Button onClick={getInspiration}>Ask the Oracle</Button>
         <ApiModal show={apiData} onHide={() => setApiData(false)} apiData={apiData}/>
+        <br/>
+        {props.handleClick && <Button onClick={props.handleClick} className="delete-reading-btn" variant="danger">Delete Reading</Button>}
     </>
   );
 }

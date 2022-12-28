@@ -1,10 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage, {loader as cardLoader} from './pages/Home'
-import ReadingsPage from './components/Readings'
-import NotesPage, {loader as notesLoader} from './pages/Notes'
+import HomePage, {loader as cardLoader} from './TarotApp/pages/Home'
+import NotesPage from './TarotApp/pages/Notes'
 import RootLayout from './pages/RootLayout'
-import Login from './pages/Login'
-import Cards from './pages/Cards'
+import Login from './TarotApp/pages/Login'
 import './index.css'
 import axios from 'axios'
 

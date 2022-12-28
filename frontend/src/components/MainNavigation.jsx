@@ -28,7 +28,10 @@ function MainNavigation(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-             { props.user && <Nav.Link href="/notes">Notes</Nav.Link> }       
+             { props.user && <Nav.Link href="/tarot">Tarot</Nav.Link> }       
+            </Nav>
+            <Nav className="me-auto">
+             { props.user && <Nav.Link href="/dreams">Dreams</Nav.Link> }       
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

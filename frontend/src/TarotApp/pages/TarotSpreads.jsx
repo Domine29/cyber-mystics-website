@@ -1,5 +1,5 @@
 import SpreadNote from "../components/SpreadNote";
-import "./Notes.css";
+import "./TarotSpreads.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 

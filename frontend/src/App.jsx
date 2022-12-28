@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage, {loader as cardLoader} from './TarotApp/pages/Home'
-import NotesPage from './TarotApp/pages/Notes'
+import NotesPage from './TarotApp/pages/TarotSpreads'
 import RootLayout from './pages/RootLayout'
 import Login from './TarotApp/pages/Login'
 import './index.css'
@@ -24,7 +24,11 @@ const router = createBrowserRouter([
         loader: cardLoader
       },
       {
-        path: '/notes',
+        path: '/tarot',
+        element: <NotesPage />
+      },
+      {
+        path: '/dreams',
         element: <NotesPage />
       },
       {

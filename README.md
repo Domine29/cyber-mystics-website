@@ -39,3 +39,4 @@
       - if dream comments on external situation, it will focus on the contribution of your attitudes and unconscious behavior patterns
       - Learn to live with dreams over time
   - Act consciously to honor your dreams: a simple, non-grandiouse physical act may suffice. 
+  - After all this guidance, all entries will be saved onto a Journal Entry categorized as Dream. User can click on Journal in the navbar and see a journal with their Tarot entries and Dream entries. 

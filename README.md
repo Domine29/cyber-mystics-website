@@ -15,7 +15,7 @@
 
 # Dream Journaling App
 
-## Overall Description [Trello Board](https://trello.com/b/vYqJcKUL/journaling-application)
+## Overall Description: [Trello Board](https://trello.com/b/vYqJcKUL/journaling-application)
   - User will create a new Dream Entry
   - They will be guided and prompted first to create a Dramatis Personae...
     - Dream Images: persons, objects, situations, colors, sounds, speech

@@ -6,11 +6,12 @@ import Login from './TarotApp/pages/Login'
 import './index.css'
 import axios from 'axios'
 import DreamsPage from './DreamJournalApp/pages/Dreams'
+import TestJournalPage from "./pages/TestJournalPage";
 
 
 export async function userLoader() {
-  let res = await axios.get('api/user')
-  let user = res.data
+  let res = await axios.get("api/user");
+  let user = res.data;
   return { user };
 }
 
@@ -20,32 +21,29 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     loader: userLoader,
     children: [
-      { index: true, 
-        element: <HomePage user={userLoader}/>,
-        loader: cardLoader
+      {
+        index: true,
+        element: <HomePage user={userLoader} />,
+        loader: cardLoader,
       },
       {
-        path: '/tarot',
-        element: <NotesPage />
+        path: "/tarot",
+        element: <NotesPage />,
       },
       {
         path: '/dreams',
-        element: <DreamsPage />
+        element: <NotesPage />
       },
       {
-        path: '/login',
-        element: <Login />
+        path: "/login",
+        element: <Login />,
       },
-    ]
-  }
-])
-
+    ],
+  },
+]);
 
 function App() {
-
-  return (
-    <RouterProvider router={router} />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

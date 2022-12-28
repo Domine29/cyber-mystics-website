@@ -5,6 +5,7 @@ import RootLayout from './pages/RootLayout'
 import Login from './TarotApp/pages/Login'
 import './index.css'
 import axios from 'axios'
+import DreamsPage from './DreamJournalApp/pages/Dreams'
 
 
 export async function userLoader() {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/dreams',
-        element: <NotesPage />
+        element: <DreamsPage />
       },
       {
         path: '/login',

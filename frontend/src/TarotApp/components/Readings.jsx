@@ -1,6 +1,5 @@
 import '../pages/Home.css';
 import SpreadShuffle from "./SpreadShuffle";
-import { Row, Col } from "react-bootstrap";
 
 export default function Readings(props) {
 

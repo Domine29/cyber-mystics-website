@@ -1,8 +1,7 @@
-import { useRef, useState } from "react";
-import "./JournalComponent.css";
+import { useState } from "react";
 
 export default function JournalComponent() {
-  const [textAreaHeight, setTextAreaHeight] = useState(3);
+  const [textAreaHeight, setTextAreaHeight] = useState(1);
   let letterCount = 0;
 
   function handleKeyPress(e) {
@@ -11,7 +10,7 @@ export default function JournalComponent() {
       letterCount = 0;
     }
     if (e.key === "Backspace") {
-      if (textAreaHeight > 3 && letterCount === 0) {
+      if (textAreaHeight > 1 && letterCount === 0) {
         setTextAreaHeight(textAreaHeight - 1);
       }
     } else {
@@ -20,12 +19,10 @@ export default function JournalComponent() {
   }
 
   return (
-    <div>
-      <textarea
-        className="journal-entry"
-        rows={textAreaHeight}
-        onKeyDown={handleKeyPress}
-      ></textarea>
-    </div>
+    <textarea
+      className="journal-entry"
+      rows={textAreaHeight}
+      onKeyDown={handleKeyPress}
+    ></textarea>
   );
 }

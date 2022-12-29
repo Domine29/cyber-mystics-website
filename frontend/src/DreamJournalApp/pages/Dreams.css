@@ -1,0 +1,22 @@
+.journal-card {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.journal-card-header {
+  text-align: center;
+  height: 2.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.guidance-button {
+  float: right;
+}
+.journal-entry {
+  width: 50%;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  border-style: none;
+  background: #d0d8fc;
+}

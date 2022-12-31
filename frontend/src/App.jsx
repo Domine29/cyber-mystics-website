@@ -7,6 +7,7 @@ import './index.css'
 import axios from 'axios'
 import DreamsPage from './DreamJournalApp/pages/Dreams'
 import TestJournalPage from "./pages/TestJournalPage";
+import Account from './TarotApp/pages/Account'
 
 
 export async function userLoader() {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/account",
+        element:<Account/>,
+      }
     ],
   },
 ]);

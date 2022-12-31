@@ -33,7 +33,7 @@ export default function NotesPage() {
 
   useEffect(() => {
     getUserNotes();
-  }, [currentNote, noteData]);
+  }, [currentNote]);
 
   return (
     <div className="notes-page">

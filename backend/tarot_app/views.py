@@ -62,7 +62,22 @@ def current_user(request):
         return HttpResponse(data)
     else:
         return JsonResponse(None, safe=False)
+@api_view(["GET"])
+def user_account(request):
+    user=request.user
+    accountDetails={
+        "first_name":None,
+        "last_name":None,
+        "email":None,
+        "cell":None
+    }
+    for key,val in accountDetails.items():
+        try:
+            accountDetails[key]=getattr(user,f'{key}')
+        except:
+            accountDetails[key]=None
 
+    return JsonResponse(accountDetails)
 @api_view(["POST"])
 def get_reading(request):
     user = request.user

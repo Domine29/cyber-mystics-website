@@ -1,10 +1,11 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage, { loader as cardLoader } from "./TarotApp/pages/Home";
-import NotesPage from "./TarotApp/pages/TarotSpreads";
-import RootLayout from "./pages/RootLayout";
-import Login from "./TarotApp/pages/Login";
-import "./index.css";
-import axios from "axios";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import HomePage, {loader as cardLoader} from './TarotApp/pages/Home'
+import NotesPage from './TarotApp/pages/TarotSpreads'
+import RootLayout from './pages/RootLayout'
+import Login from './TarotApp/pages/Login'
+import './index.css'
+import axios from 'axios'
+import Account from './TarotApp/pages/Account'
 import Dreams from "./DreamJournalApp/pages/Dreams";
 
 export async function userLoader() {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+      {
+        path: "/account",
+        element:<Account/>,
+      }
     ],
   },
 ]);

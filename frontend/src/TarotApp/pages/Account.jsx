@@ -1,6 +1,18 @@
+
+import { Row,Col, Container} from "react-bootstrap";
+import ProfileSection from "../components/ProfileSection";
+import "./Account.css"
 export default function Account(){
+  
+
     return(
-        <p>Account Page</p>
+        <Container id="account">
+
+            <Row >
+                <ProfileSection/>
+            </Row>
+           
+        </Container>
     )
 
 }

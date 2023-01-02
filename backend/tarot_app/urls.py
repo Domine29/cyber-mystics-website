@@ -7,6 +7,7 @@ urlpatterns = [
     path('api/login', views.login_user),
     path('api/logout', views.logout_user),
     path('api/user', views.current_user),
+    path('api/user/account',views.user_account),
     path('api/reading', views.get_reading),
     path('api/note', views.update_note),
     path('api/notes/<int:number>', views.get_user_notes),

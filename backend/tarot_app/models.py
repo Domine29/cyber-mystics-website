@@ -6,6 +6,8 @@ from django.contrib.auth.models import AbstractUser
 
 class SiteUser(AbstractUser):
     email = models.EmailField(max_length = 100, unique = True)
+    phoneCode=models.IntegerField(blank=True,null=True)
+    cellPhoneNumber=models.TextField(max_length=12,blank=True,null=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

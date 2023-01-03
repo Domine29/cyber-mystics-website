@@ -4,9 +4,15 @@ from rest_framework.decorators import api_view
 from django.core import serializers
 from django.contrib.auth import authenticate, login, logout
 from rest_framework.response import Response
+from twilio.rest import Client
 import json
+import random
 import requests
+from decouple import config
 
+twillio_account_sid=config('twillio_account_sid')
+twillio_auth_token=config('twillio_auth_token')
+twillio_number=config('twillio_number')
 def index(request):
     theIndex = open('static/index.html').read()
     return HttpResponse(theIndex)
@@ -62,6 +68,28 @@ def current_user(request):
         return HttpResponse(data)
     else:
         return JsonResponse(None, safe=False)
+@api_view(['POST'])
+def set_cell(request):
+    if request.data["code"] == False:
+        phone_number=request.data['phoneNumber']
+        client = Client(twillio_account_sid,twillio_auth_token)
+        auth_number =random.randint(100000, 999999)
+        print(auth_number)
+        request.user.phoneCode=auth_number
+        print(request.user.phoneCode)
+        request.user.save()
+        # message = client.messages.create(
+        #         body=f'Your authentication number is: {auth_number}',
+        #         from_=twillio_number,
+        #         to=f'+1{phone_number}'
+        #             )
+        return HttpResponse('')
+    else:
+        if (int(request.data["code"])==request.user.phoneCode):
+            request.user.cellPhoneNumber= "+1"+request.data['phoneNumber']
+
+   
+        return HttpResponse('')
 @api_view(["GET"])
 def user_account(request):
     user=request.user

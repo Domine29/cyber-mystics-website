@@ -1,6 +1,7 @@
 import { Col,Row,Button, Modal,InputGroup,Form } from "react-bootstrap"
 import { useState,useEffect } from "react";
 import axios from "axios";
+import CellModal from "./CellModal";
 export default function ProfileSection(){
     const [accountDetails,setAccountDetails]=useState('')
     const [show,setShow]=useState(false)
@@ -39,15 +40,7 @@ useEffect(()=>{
         <Col xs={12}>
             <h5>Cell <Button onClick={handleShow}>Edit</Button></h5>
             <p>{accountDetails.cell}</p>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton> Edit Cell</Modal.Header>
-                <Modal.Body>
-                    <InputGroup className="mb-3">
-                        <Form.Control placeholder="Enter your Cell number"/>
-                        <Button variant="outline-secondary" id="button-addon2">Button</Button>
-                    </InputGroup>
-                </Modal.Body>
-            </Modal>
+            <CellModal show={show} handleClose={handleClose}/>
         </Col>
 
     </Row>

@@ -3,13 +3,16 @@
   border-radius: 2%;
   height: 18em;
   width: auto;
-  border: 3px solid #CEBCA3;
+  border: 0.25px solid #CEBCA3;
   position: absolute;
-  z-index: 1;
+}
+
+.tarot-shuffle:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 #card-orientation {
-  transform: scaleY(-1)
+  transform: 
 }
 
 .select-spread-form {
@@ -33,6 +36,7 @@
   margin-right: 15px;
   margin-bottom: 25px;
 }
+
 .card-carousel {
   max-width: 322px
 }

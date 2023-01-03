@@ -1,6 +1,13 @@
 .journal-card {
-  margin: 0 auto;
+  margin-top: 1.5rem;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
   width: 95%;
+}
+
+.journal-card > h5 {
+  margin-left: 2rem;
 }
 
 .journal-card-header {
@@ -13,10 +20,18 @@
 .guidance-button {
   float: right;
 }
+
+.dream-imgs {
+  float: left;
+}
+
 .journal-entry {
-  width: 50%;
-  margin-bottom: 0.5rem;
+  width: 90%;
   border-radius: 5px;
   border-style: none;
   background: #d0d8fc;
+  margin-top: 0.25rem;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  margin-left: auto;
 }

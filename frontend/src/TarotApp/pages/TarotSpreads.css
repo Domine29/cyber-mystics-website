@@ -18,7 +18,7 @@
 .vertical-line {
   width: 3px;
   height: 85%;
-  background-color: #D1D8FC;
+  background-color: #94a6ff;
 }
 
 .note-form {
@@ -62,6 +62,3 @@
   justify-content: center;
 }
 
-.ask-the-oracle{
-  background-color: #D1D8FC;
-}

@@ -1,5 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export default function JournalHeader() {
   return (
@@ -8,10 +9,10 @@ export default function JournalHeader() {
         Dramatis Personae
       </Card.Header>
       <Card.Body>
-        <span>
-          <input type="text" placeholder="Image Name"></input>
-          <input type="file"></input>
-        </span>
+        <ListGroup horizontal className="dream-imgs">
+          <ListGroup.Item>Dream Image</ListGroup.Item>
+          <ListGroup.Item>Add Dream Image</ListGroup.Item>
+        </ListGroup>
         <Button className="guidance-button">Guidance</Button>
       </Card.Body>
     </Card>

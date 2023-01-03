@@ -38,3 +38,18 @@ h1 {
   max-width: 100%;
 }
 
+.btn-primary {
+  background-color: #D1D8FC !important;
+  color: black !important;
+  border-color: #D1D8FC !important;
+}
+
+.btn-danger {
+  background-color: #94a6ff !important;
+  color: black !important;
+  border-color: #94a6ff !important;
+}
+
+.form-control {
+  background-color: #D1D8FC !important;
+}

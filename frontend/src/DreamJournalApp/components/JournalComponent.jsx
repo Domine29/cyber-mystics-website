@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function JournalComponent() {
-  const [textAreaHeight, setTextAreaHeight] = useState(1);
+  const [textAreaHeight, setTextAreaHeight] = useState(4);
   let letterCount = 0;
 
   function handleKeyPress(e) {

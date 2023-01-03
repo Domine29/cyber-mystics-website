@@ -6,12 +6,12 @@ import "./Dreams.css";
 export default function DreamsPage() {
   return (
     <Card className="journal-card">
-      <JournalHeader />
-      <h2>Description</h2>
+      <JournalHeader /><br/>
+      <h5>Description</h5>
       <JournalComponent />
-      <h2>Association</h2>
+      <h5>Association</h5>
       <JournalComponent />
-      <h2>Inner Dynamics</h2>
+      <h5>Inner Dynamics</h5>
       <JournalComponent />
     </Card>
   );

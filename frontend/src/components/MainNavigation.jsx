@@ -4,19 +4,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-const logout = async() => {
-  await axios.post('/api/logout')
-  window.location.reload()
-  }
+const logout = async () => {
+  await axios.post("/api/logout");
+  window.location.reload();
+};
 
-function userLogoutRender(user){
-  return(
+function userLogoutRender(user) {
+  return (
     <Navbar.Collapse className="justify-content-end">
        <Navbar.Text style={{paddingRight: '.5rem'}} ><Nav.Link href="/account">{user}</Nav.Link></Navbar.Text>
        <Button onClick={logout} variant="danger">Logout</Button>
     </Navbar.Collapse>
-   
-  )
+  );
 }
 
 function MainNavigation(props) {
@@ -28,16 +27,18 @@ function MainNavigation(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-             { props.user && <Nav.Link href="/tarot">Tarot</Nav.Link> }       
-            </Nav>
-            <Nav className="me-auto">
-             { props.user && <Nav.Link href="/dreams">Dreams</Nav.Link> }       
+              {props.user && <Nav.Link href="/tarot">Tarot</Nav.Link>}
+              {props.user && <Nav.Link href="/dreams">Dreams</Nav.Link>}
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">
-            {props.user
-              ? userLogoutRender(props.user)
-              : <Navbar.Text><Nav.Link href="/login">Login</Nav.Link></Navbar.Text>}
+            {props.user ? (
+              userLogoutRender(props.user)
+            ) : (
+              <Navbar.Text>
+                <Nav.Link href="/login">Login</Nav.Link>
+              </Navbar.Text>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

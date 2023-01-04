@@ -12,8 +12,12 @@ const logout = async () => {
 function userLogoutRender(user) {
   return (
     <Navbar.Collapse className="justify-content-end">
-       <Navbar.Text style={{paddingRight: '.5rem'}} ><Nav.Link href="/account">{user}</Nav.Link></Navbar.Text>
-       <Button onClick={logout} variant="danger">Logout</Button>
+      <Navbar.Text style={{ paddingRight: ".5rem" }}>
+        <Nav.Link href="/account">{user}</Nav.Link>
+      </Navbar.Text>
+      <Button onClick={logout} variant="danger">
+        Logout
+      </Button>
     </Navbar.Collapse>
   );
 }
@@ -29,6 +33,7 @@ function MainNavigation(props) {
             <Nav className="me-auto">
               {props.user && <Nav.Link href="/tarot">Tarot</Nav.Link>}
               {props.user && <Nav.Link href="/dreams">Dreams</Nav.Link>}
+              {props.user && <Nav.Link href="/journal">Journal</Nav.Link>}
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

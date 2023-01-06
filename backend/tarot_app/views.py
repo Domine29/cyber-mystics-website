@@ -68,6 +68,14 @@ def current_user(request):
         return HttpResponse(data)
     else:
         return JsonResponse(None, safe=False)
+@api_view(['PUT'])
+def set_name(request):
+    print(request.data)
+    first_or_last_name=next(iter(request.data))
+    setattr(request.user, first_or_last_name,request.data[first_or_last_name])
+    request.user.save()
+    return HttpResponse('ok')
+
 @api_view(['POST'])
 def set_cell(request):
     if request.data["code"] == False:
@@ -78,11 +86,11 @@ def set_cell(request):
         request.user.phoneCode=auth_number
         print(request.user.phoneCode)
         request.user.save()
-        # message = client.messages.create(
-        #         body=f'Your authentication number is: {auth_number}',
-        #         from_=twillio_number,
-        #         to=f'+1{phone_number}'
-        #             )
+        message = client.messages.create(
+                body=f'Your authentication number is: {auth_number}',
+                from_=twillio_number,
+                to=f'+1{phone_number}'
+                    )
         return HttpResponse('')
     else:
         if (int(request.data["code"])==request.user.phoneCode):

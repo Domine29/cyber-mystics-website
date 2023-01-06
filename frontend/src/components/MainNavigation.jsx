@@ -12,7 +12,7 @@ const logout = async() => {
 function userLogoutRender(user){
   return(
     <Navbar.Collapse className="justify-content-end">
-       <Navbar.Text style={{paddingRight: '.5rem'}}><Nav.Link href="/account">{user}</Nav.Link></Navbar.Text>
+       <Navbar.Text style={{paddingRight: '.5rem'}}><Nav.Link href="/account">Account</Nav.Link></Navbar.Text>
        <Button onClick={logout}>Logout</Button>
     </Navbar.Collapse>
    

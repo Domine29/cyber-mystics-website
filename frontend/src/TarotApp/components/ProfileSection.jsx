@@ -47,7 +47,7 @@ useEffect(()=>{
 
         <Col xs={12}>
             <h5 class="text-decoration-underline">Cell <Button className="bg-transparent text-dark square border border-0 pt-0" onClick={() => handleShow('Cell')}><BsFillPenFill/></Button></h5>
-            {accountDetails.cell=="" || accountDetails.cell== null?<p>N/A</p>:<p>{accountDetails.cell}</p>}
+            {accountDetails.cell_phone_number=="" || accountDetails.cell_phone_number== null?<p>N/A</p>:<p>{accountDetails.cell_phone_number}</p>}
             <CellModal show={showCell} handleClose={() => handleClose('Cell')}/>
         </Col>
 

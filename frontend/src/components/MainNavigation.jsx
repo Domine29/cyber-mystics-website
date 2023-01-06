@@ -3,10 +3,13 @@ import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { redirect } from "react-router-dom";
 
 const logout = async() => {
   await axios.post('/api/logout')
+  redirect('/')
   window.location.reload()
+
   }
 
 function userLogoutRender(user){

@@ -30,8 +30,11 @@ def register_user(request):
     if request.method == "POST":
         email = request.data['email']
         password = request.data['password']
+        first_name=request.data['firstName']
+        last_name=request.data['lastName']
+        phone_number=request.data['phoneNumber']
         try:
-            SiteUser.objects.create_user(email=email, password=password, username=email)
+            SiteUser.objects.create_user(email=email, password=password, username=email,cell_phone_number=phone_number,first_name=first_name,last_name=last_name)
             return JsonResponse({'success': True})
         except Exception as e:
             return HttpResponse("A user with that email already exists.", status=409)
@@ -70,7 +73,6 @@ def current_user(request):
         return JsonResponse(None, safe=False)
 @api_view(['PUT'])
 def set_name(request):
-    print(request.data)
     first_or_last_name=next(iter(request.data))
     setattr(request.user, first_or_last_name,request.data[first_or_last_name])
     request.user.save()
@@ -83,8 +85,7 @@ def set_cell(request):
         client = Client(twillio_account_sid,twillio_auth_token)
         auth_number =random.randint(100000, 999999)
         print(auth_number)
-        request.user.phoneCode=auth_number
-        print(request.user.phoneCode)
+        request.user.phone_code=auth_number
         request.user.save()
         message = client.messages.create(
                 body=f'Your authentication number is: {auth_number}',
@@ -93,8 +94,8 @@ def set_cell(request):
                     )
         return HttpResponse('')
     else:
-        if (int(request.data["code"])==request.user.phoneCode):
-            request.user.cellPhoneNumber= "+1"+request.data['phoneNumber']
+        if (int(request.data["code"])==request.user.phone_code):
+            request.user.cell_phone_number= "+1"+request.data['phoneNumber']
 
    
         return HttpResponse('')
@@ -105,7 +106,7 @@ def user_account(request):
         "first_name":None,
         "last_name":None,
         "email":None,
-        "cell":None
+        "cell_phone_number":None
     }
     for key,val in accountDetails.items():
         try:

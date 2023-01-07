@@ -1,8 +1,8 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ListGroup from 'react-bootstrap/ListGroup';
+import ListGroup from "react-bootstrap/ListGroup";
 
-export default function JournalHeader() {
+export default function DreamPageHeader() {
   return (
     <Card>
       <Card.Header className="journal-card-header">
@@ -11,7 +11,9 @@ export default function JournalHeader() {
       <Card.Body>
         <ListGroup horizontal className="dream-imgs">
           <ListGroup.Item>Dream Image</ListGroup.Item>
-          <ListGroup.Item>Add Dream Image</ListGroup.Item>
+          <ListGroup.Item onClick="" s style={{ cursor: "pointer" }}>
+            Add Dream Image
+          </ListGroup.Item>
         </ListGroup>
         <Button className="guidance-button">Guidance</Button>
       </Card.Body>

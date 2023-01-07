@@ -6,7 +6,7 @@
   width: 95%;
 }
 
-.journal-card > h5 {
+.headers {
   margin-left: 2rem;
 }
 
@@ -33,5 +33,5 @@
   margin-top: 0.25rem;
   margin-right: auto;
   margin-bottom: 2rem;
-  margin-left: auto;
+  margin-left: 7rem;
 }

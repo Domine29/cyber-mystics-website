@@ -7,9 +7,11 @@ from rest_framework.response import Response
 import json
 import requests
 
+
 def index(request):
     theIndex = open('static/index.html').read()
     return HttpResponse(theIndex)
+
 
 @api_view(["GET"])
 def load_cards(request):
@@ -19,16 +21,19 @@ def load_cards(request):
 
         return HttpResponse(cards_json)
 
+
 @api_view(["POST"])
 def register_user(request):
     if request.method == "POST":
         email = request.data['email']
         password = request.data['password']
         try:
-            SiteUser.objects.create_user(email=email, password=password, username=email)
+            SiteUser.objects.create_user(
+                email=email, password=password, username=email)
             return JsonResponse({'success': True})
         except Exception as e:
             return HttpResponse("A user with that email already exists.", status=409)
+
 
 @api_view(["POST"])
 def login_user(request):
@@ -47,13 +52,15 @@ def login_user(request):
                 return (HttpResponse("Invalid Credentials", status=401))
         return (HttpResponse("Invalid Credentials", status=401))
 
+
 def logout_user(request):
     try:
         logout(request)
-        return JsonResponse({'logout' : True})
+        return JsonResponse({'logout': True})
     except Exception as e:
         print(e)
-        return JsonResponse({'logout' : False})
+        return JsonResponse({'logout': False})
+
 
 @api_view(["GET"])
 def current_user(request):
@@ -62,26 +69,30 @@ def current_user(request):
         return HttpResponse(data)
     else:
         return JsonResponse(None, safe=False)
+
+
 @api_view(["GET"])
 def user_account(request):
-    user=request.user
-    accountDetails={
-        "first_name":None,
-        "last_name":None,
-        "email":None,
-        "cell":None
+    user = request.user
+    accountDetails = {
+        "first_name": None,
+        "last_name": None,
+        "email": None,
+        "cell": None
     }
-    for key,val in accountDetails.items():
+    for key, val in accountDetails.items():
         try:
-            accountDetails[key]=getattr(user,f'{key}')
+            accountDetails[key] = getattr(user, f'{key}')
         except:
-            accountDetails[key]=None
+            accountDetails[key] = None
 
     return JsonResponse(accountDetails)
+
+
 @api_view(["POST"])
 def get_reading(request):
     user = request.user
-    card_name = request.data['card'] 
+    card_name = request.data['card']
     reverse = request.data['reverse']
     if request.user.is_authenticated:
 
@@ -91,11 +102,12 @@ def get_reading(request):
         spread = Spread(user=user, type="Single Card")
         spread.save()
 
-        card_in_spread = CardInSpread(spread=spread, tarot_card=card, position=1, reverse=reverse)
+        card_in_spread = CardInSpread(
+            spread=spread, tarot_card=card, position=1, reverse=reverse)
         card_in_spread.save()
-        
 
-        note = Note(card_in_spread=card_in_spread, description="", interpretation="")
+        note = Note(card_in_spread=card_in_spread,
+                    description="", interpretation="")
         note.save()
 
         data = {
@@ -118,16 +130,19 @@ def get_reading(request):
         response_data = json.dumps(data)
 
         return HttpResponse(response_data, content_type='application/json')
-        
-    return JsonResponse({'success' : False})
+
+    return JsonResponse({'success': False})
+
 
 @api_view(["PUT"])
 def update_note(request):
     description = request.data['description']
     interpretation = request.data['interpretation']
     note_id = request.data['note_id']
-    Note.objects.filter(pk=note_id).update(description=description, interpretation=interpretation)
+    Note.objects.filter(pk=note_id).update(
+        description=description, interpretation=interpretation)
     return JsonResponse({'success': True})
+
 
 @api_view(["GET"])
 def third_party_api(request):
@@ -143,6 +158,7 @@ def third_party_api(request):
 
     return HttpResponse(response_data)
 
+
 @api_view(["GET"])
 def get_user_notes(request, number):
     if request.user.is_authenticated:
@@ -157,7 +173,6 @@ def get_user_notes(request, number):
         card_in_spread = CardInSpread.objects.get(spread=active_spread.pk)
         card = card_in_spread.tarot_card
         active_note = Note.objects.get(card_in_spread=card_in_spread)
-
 
         spreads_length = len(spreads)
 
@@ -181,9 +196,10 @@ def get_user_notes(request, number):
 
     return JsonResponse({'success': False})
 
+
 @api_view(["DELETE"])
-def delete_spread(request, spread_id): 
+def delete_spread(request, spread_id):
     spread_to_delete = Spread.objects.get(pk=spread_id)
     spread_to_delete.delete()
-    
+
     return JsonResponse({'success': True})

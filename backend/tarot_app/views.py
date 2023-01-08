@@ -16,7 +16,18 @@ twillio_number=config('twillio_number')
 def index(request):
     theIndex = open('static/index.html').read()
     return HttpResponse(theIndex)
+@api_view(['POST'])
+def set2fa(request):
+    phone_number=request.data['phoneNumber']
+    client = Client(twillio_account_sid,twillio_auth_token)
+    auth_number =random.randint(100000, 999999)
+    message = client.messages.create(
+            body=f'Your authentication number is: {auth_number}',
+            from_=twillio_number,
+            to=f'+1{phone_number}'
+                )
 
+    return JsonResponse({'OTP':auth_number})
 @api_view(["GET"])
 def load_cards(request):
     if request.method == "GET":
@@ -78,13 +89,25 @@ def set_name(request):
     request.user.save()
     return HttpResponse('ok')
 
+@api_view(['PUT'])
+def set_password(request):
+    user=SiteUser.objects.get(cell_phone_number=request.data['phoneNumber'])
+    user.set_password(request.data['password'])
+    try:
+        user.save()
+        return JsonResponse({"message":"password changed"})
+    except Exception as e:
+        return JsonResponse({"message":e})
+
 @api_view(['POST'])
 def set_cell(request):
+    print('test')
+    print(request.data)
+    print(request.user.phone_code)
     if request.data["code"] == False:
         phone_number=request.data['phoneNumber']
         client = Client(twillio_account_sid,twillio_auth_token)
         auth_number =random.randint(100000, 999999)
-        print(auth_number)
         request.user.phone_code=auth_number
         request.user.save()
         message = client.messages.create(
@@ -95,10 +118,15 @@ def set_cell(request):
         return HttpResponse('')
     else:
         if (int(request.data["code"])==request.user.phone_code):
-            request.user.cell_phone_number= "+1"+request.data['phoneNumber']
+            request.user.cell_phone_number=request.data['phoneNumber']
+            request.user.save()
+            message="new phone saved"
+            return JsonResponse({'message':message})
+            
+        else:
+            message="incorrect code"
+            return JsonResponse({'message':message}, status=400)
 
-   
-        return HttpResponse('')
 @api_view(["GET"])
 def user_account(request):
     user=request.user

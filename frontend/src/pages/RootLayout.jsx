@@ -7,6 +7,7 @@ import axios from 'axios';
 
 export default function RootLayout() {
   const { user } = useLoaderData()
+ 
   
   function getCookie(name) {
     let cookieValue = null;

@@ -19,11 +19,18 @@ export default function CellModal(props){
         else
             console.log("invalid")
     }
-    function checkCode(){
-        let code=auth1
-        console.log("in check")
-        axios.post('/api/user/cell',{"phoneNumber":phoneNumber,"code":code})
-    }
+    function checkCode() {
+        let code = auth1;
+        console.log("in check");
+        axios
+          .post("/api/user/cell", { phoneNumber: phoneNumber, code: code })
+          .then((response) => alert(response.data["message"]))
+          .then((response)=>window.location.reload())
+          .catch((error) => {
+            alert(error.response.data["message"]);
+          });
+      }
+      
 
     function nextStep(){
         setStep(step+1)

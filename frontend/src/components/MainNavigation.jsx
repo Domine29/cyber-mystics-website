@@ -3,26 +3,24 @@ import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { redirect } from "react-router-dom";
-
-const logout = async() => {
-  await axios.post('/api/logout')
-  redirect('/')
-  window.location.reload()
-
-  }
-
-function userLogoutRender(user){
-  return(
-    <Navbar.Collapse className="justify-content-end">
-       <Navbar.Text style={{paddingRight: '.5rem'}}><Nav.Link href="/account">Account</Nav.Link></Navbar.Text>
-       <Button onClick={logout}>Logout</Button>
-    </Navbar.Collapse>
-   
-  )
-}
+import { useNavigate } from "react-router-dom";
 
 function MainNavigation(props) {
+  const navigate = useNavigate();
+  const logout = async() => {
+    await axios.post('/api/logout').then((response)=>navigate('/'))
+    }
+  
+  function userLogoutRender(user){
+    return(
+      <Navbar.Collapse className="justify-content-end">
+         <Navbar.Text style={{paddingRight: '.5rem'}}><Nav.Link href="/account">Account</Nav.Link></Navbar.Text>
+         <Button onClick={logout}>Logout</Button>
+      </Navbar.Collapse>
+     
+    )
+  }
+  
   return (
     <>
       <Navbar expand="lg" className="CM-navbar">

@@ -7,6 +7,7 @@ import './index.css'
 import axios from 'axios'
 import Account from './TarotApp/pages/Account'
 import Dreams from "./DreamJournalApp/pages/Dreams";
+import ForgotPassword from './pages/ForgotPassword'
 
 export async function userLoader() {
   let res = await axios.get("api/user");
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/account",
         element:<Account/>,
+      },
+      {
+        path: "/forgotpassword",
+        element:<ForgotPassword/>
       }
     ],
   },

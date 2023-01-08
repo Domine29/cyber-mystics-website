@@ -9,6 +9,8 @@ urlpatterns = [
     path('api/user', views.current_user),
     path('api/user/account',views.user_account),
     path('api/user/name',views.set_name),
+    path('api/2fa',views.set2fa),
+    path('api/set_password',views.set_password),
     path('api/user/cell',views.set_cell),
     path('api/reading', views.get_reading),
     path('api/note', views.update_note),

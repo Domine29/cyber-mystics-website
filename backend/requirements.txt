@@ -3,6 +3,7 @@ certifi==2022.12.7
 charset-normalizer==2.1.1
 Django==4.1.4
 django-cors-headers==3.13.0
+django-environ==0.9.0
 django-seed==0.3.1
 djangorestframework==3.14.0
 Faker==15.3.4
@@ -10,9 +11,11 @@ idna==3.4
 psycopg2==2.9.5
 PyJWT==2.6.0
 python-dateutil==2.8.2
+python-decouple==3.6
 pytz==2022.6
 requests==2.28.1
 six==1.16.0
 sqlparse==0.4.3
 toposort==1.7
+twilio==7.16.0
 urllib3==1.26.13

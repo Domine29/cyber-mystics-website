@@ -113,7 +113,7 @@ export default function SignUpForm() {
 
         <Modal show={showOTP} onHide={()=>setShowOTP(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Enter Your OTP</Modal.Title>
+          <Modal.Title>Enter the Authentication code sent to your phone</Modal.Title>
         </Modal.Header>
           <Modal.Body>
              <Form.Group>

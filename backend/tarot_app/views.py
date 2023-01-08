@@ -26,7 +26,6 @@ def set2fa(request):
             from_=twillio_number,
             to=f'+1{phone_number}'
                 )
-
     return JsonResponse({'OTP':auth_number})
 @api_view(["GET"])
 def load_cards(request):

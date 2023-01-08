@@ -7,6 +7,7 @@ import "./index.css";
 import axios from "axios";
 import Account from "./TarotApp/pages/Account";
 import Dreams from "./DreamJournalApp/pages/Dreams";
+import ForgotPassword from './pages/ForgotPassword'
 import JournalEntries from "./DreamJournalApp/pages/JournalEntries";
 
 export async function userLoader() {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/journal",
         element: <JournalEntries />,
+      },
+      {
+        path: "/forgotpassword",
+        element:<ForgotPassword/>
       },
     ],
   },

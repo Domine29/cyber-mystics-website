@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
+import { Nav } from "react-bootstrap";
 
 export default function LoginForm() {
   const [error, setError] = useState('')
@@ -38,10 +39,13 @@ export default function LoginForm() {
             placeholder="Password"
             name="password"
           />
+          <Nav.Link href="/forgotpassword/">Forgot Password</Nav.Link>
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Login
         </Button>
+          
       </Form>
     </>
   );

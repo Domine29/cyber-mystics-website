@@ -13,7 +13,6 @@ export default function JournalToC() {
         <h2 className="journal-toc">Table of Contents</h2>
       </div>
       <Card className="journal-entry" onClick={() => setShow(!show)}>
-        <Card.Header>11 November, 2022 --- Flying Red Car</Card.Header>
         {show ? (
           <Card.Body>
             <Dreams />

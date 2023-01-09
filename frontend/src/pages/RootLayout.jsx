@@ -7,6 +7,7 @@ import axios from 'axios';
 
 export default function RootLayout() {
   const { user } = useLoaderData()
+ 
   
   function getCookie(name) {
     let cookieValue = null;
@@ -28,7 +29,6 @@ export default function RootLayout() {
 
   return (
     <>
-      <img src='/static/images/CM-banner.jpg' className='CM-banner'/>
       <MainNavigation user={user}/>
       <main className='main'>
         <Outlet user={user}/>

@@ -7,6 +7,7 @@ import "./index.css";
 import axios from "axios";
 import Account from "./TarotApp/pages/Account";
 import Dreams from "./DreamJournalApp/pages/Dreams";
+import ForgotPassword from './pages/ForgotPassword'
 import JournalEntries from "./DreamJournalApp/pages/JournalEntries";
 import HeroPage from "./pages/HeroPage";
 
@@ -19,12 +20,12 @@ export async function userLoader() {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HeroPage />,
+    element: <RootLayout />,
     loader: userLoader,
     children: [
       {
         index: true,
-        element: <HomePage user={userLoader} />,
+        element: <HeroPage user={userLoader} />,
         loader: cardLoader,
       },
       {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
         element: <NotesPage />,
       },
       {
-        path: "/dreams",
+        path: "/dream",
         element: <Dreams />,
       },
       {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/journal",
         element: <JournalEntries />,
+      },
+      {
+        path: "/forgotpassword",
+        element:<ForgotPassword/>
       },
     ],
   },

@@ -4,39 +4,7 @@ export default function HeroPage() {
   return (
     <div>
       <div className="hero-page">
-        <header>
-          <a href="#">
-            <img
-              href="#"
-              className="cm-logo"
-              src="/static/hero-page/cm-logo.svg"
-            />
-          </a>
-
-          <nav>
-            <ul>
-              <li>
-                <a href="/" className="active">
-                  HOME
-                </a>
-              </li>
-              <li>
-                <a href="/">JOURNAL</a>
-              </li>
-              <li>
-                <a href="#">DREAM</a>
-              </li>
-              <li>
-                <a href="#">TAROT</a>
-              </li>
-              <li>
-                <a href="#">ACCOUNT</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-
-        <main>
+        <main className="hero-section">
           <div className="left-col">
             <h1 className="heading">Enter a New Realm</h1>
             <p className="subheading">

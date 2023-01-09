@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function JournalComponent() {
+export default function DreamDescription(props) {
   const [textAreaHeight, setTextAreaHeight] = useState(4);
   let letterCount = 0;
 
@@ -21,6 +21,7 @@ export default function JournalComponent() {
   return (
     <textarea
       className="journal-entry"
+      ref={props.text}
       rows={textAreaHeight}
       onKeyDown={handleKeyPress}
     ></textarea>

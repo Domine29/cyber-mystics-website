@@ -8,6 +8,7 @@ import axios from "axios";
 import Account from "./TarotApp/pages/Account";
 import Dreams from "./DreamJournalApp/pages/Dreams";
 import JournalEntries from "./DreamJournalApp/pages/JournalEntries";
+import HeroPage from "./pages/HeroPage";
 
 export async function userLoader() {
   let res = await axios.get("api/user");
@@ -18,7 +19,7 @@ export async function userLoader() {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: <HeroPage />,
     loader: userLoader,
     children: [
       {

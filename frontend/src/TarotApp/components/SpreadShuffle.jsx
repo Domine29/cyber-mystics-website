@@ -7,7 +7,6 @@ export default function SpreadShuffle(props) {
 
   const shuffledItems = _.shuffle(props.cards.data);
 
-
   async function handleOnClick(e) {
     const cardName = e.target.alt
     let isReversed = Boolean(e.target.id)

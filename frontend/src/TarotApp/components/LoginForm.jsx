@@ -34,18 +34,19 @@ export default function LoginForm() {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control
+          <Form.Control style={{ backgroundColor: 'white' }} 
             type="password"
             placeholder="Password"
             name="password"
           />
-          <Nav.Link href="/forgotpassword/">Forgot Password</Nav.Link>
+          
         </Form.Group>
-
-        <Button variant="primary" type="submit">
+        <Form.Group>
+        <Button className="primary-cta" variant="primary" type="submit">
           Login
         </Button>
-          
+        <Nav.Link style={{display: "inline", marginLeft: 10, color:"blue",textTransform:"lowercase"}} href="/forgotpassword/">Forgot Password?</Nav.Link>
+        </Form.Group>
       </Form>
     </>
   );

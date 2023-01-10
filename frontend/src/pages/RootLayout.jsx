@@ -29,7 +29,6 @@ export default function RootLayout() {
 
   return (
     <>
-      <img src='/static/images/CM-banner.jpg' className='CM-banner'/>
       <MainNavigation user={user}/>
       <main className='main'>
         <Outlet user={user}/>

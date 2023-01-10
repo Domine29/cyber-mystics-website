@@ -1,8 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from .models import *
 from rest_framework.decorators import api_view
-# Create your views here.
 
+# Create your views here.
 
 @api_view(["GET", "POST"])
 def dream_entries(request):

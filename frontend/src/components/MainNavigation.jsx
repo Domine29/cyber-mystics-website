@@ -4,50 +4,65 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
+import "./MainNavigation.css"
 
 function MainNavigation(props) {
   const navigate = useNavigate();
   const logout = async () => {
-    await axios.post("/api/logout").then((response)=>navigate('/'));
+    await axios.post("/api/logout").then((response) => navigate("/"));
   };
-  
+
   function userLogoutRender(user) {
     return (
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text style={{ paddingRight: ".5rem" }}>
-        <Nav.Link href="/account">Account</Nav.Link>
-      </Navbar.Text>
+          <Nav.Link href="/account">Account</Nav.Link>
+        </Navbar.Text>
         <Button onClick={logout} variant="danger">
-        Logout
-      </Button>
+          Logout
+        </Button>
       </Navbar.Collapse>
-      );
+    );
   }
-  
+
   return (
     <>
-      <Navbar expand="lg" className="CM-navbar">
-        <Container>
-          <Navbar.Brand href="/">Cyber Mystics</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              {props.user && <Nav.Link href="/tarot">Tarot</Nav.Link>}
-              {props.user && <Nav.Link href="/dreams">Dreams</Nav.Link>}
-              {props.user && <Nav.Link href="/journal">Journal</Nav.Link>}
-            </Nav>
-          </Navbar.Collapse>
-          <Navbar.Collapse className="justify-content-end">
-            {props.user ? (
-              userLogoutRender(props.user)
-            ) : (
-              <Navbar.Text>
-                <Nav.Link href="/login">Login</Nav.Link>
-              </Navbar.Text>
+      <header>
+        <a href="#">
+          <img
+            href="/"
+            className="cm-logo"
+            src="/static/hero-page/cm-logo.svg"
+          />
+        </a>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="/" className="active">
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="/journal">JOURNAL</a>
+            </li>
+            <li>
+              <a href="/dream">DREAM</a>
+            </li>
+            <li>
+              <a href="/tarot">TAROT</a>
+            </li>
+            {props.user && (
+              <li>
+                <a href="/account">ACCOUNT</a>
+              </li>
             )}
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+            <li>
+              <a href="/login">LOGIN</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
     </>
   );
 }

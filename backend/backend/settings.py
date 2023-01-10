@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'tarot_app',
     'rest_framework',
     'corsheaders',
-    'journaling_app',
+    # 'journaling_app',
 
 ]
 
@@ -87,10 +87,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cyber_mystics_db',
     },
-    'journaling': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'journaling_app_db',
-    }
+    # 'journaling': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'journaling_app_db',
+    # }
 }
 
 

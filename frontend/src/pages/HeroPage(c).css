@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.hero-page {
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0 auto;
+  background: url("/static/hero-page/hero-page-background.svg") no-repeat center
+    center;
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 14em;
+  margin-left: 14em;
+  gap: 1em;
+  padding: 0;
+}
+
+/* NavBar */
+
+.cm-logo {
+  width: 57.7em;
+  height: auto;
+}
+
+nav {
+  margin: 4em;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 4.1em;
+  margin: 0.5em 0 0 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  position: relative;
+}
+
+nav a.active:before {
+  position: absolute;
+  content: "";
+  width: 35%;
+  height: 1px;
+  border-bottom: 2px solid black;
+  bottom: -6px;
+}
+
+nav ul li a:before {
+  color: black;
+  text-decoration: none;
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 1px;
+  border-bottom: 2px solid #8c8c8c;
+  bottom: -6px;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover {
+  color: black;
+}
+
+nav ul li a:hover:before {
+  position: absolute;
+  text-decoration: none;
+  content: "";
+  width: 0%;
+  height: 1px;
+  border-bottom: 2px solid #8c8c8c;
+  bottom: -6px;
+  width: 35%;
+}
+
+/* Hero Section */
+
+main {
+  display: flex;
+  margin-top: 3.4em;
+}
+
+.left-col {
+  width: 50%;
+  margin-left: 14em;
+  margin-top: 4em;
+}
+
+.heading {
+  font-size: 5.2rem;
+  font-family: "Playfair Display";
+  font-weight: normal;
+  margin: 0;
+  line-height: 6.9rem;
+  width: 44.2rem;
+}
+
+.subheading {
+  font-size: 2rem;
+  font-family: "Playfair Display";
+  line-height: 155%;
+  margin: 0;
+  width: 56.5rem;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 5.7em;
+  margin-top: 4.7em;
+  margin-left: 10em;
+  position: relative;
+}
+
+.primary-cta {
+  width: auto;
+  background-color: #9360ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  border-radius: 38.6em;
+  padding: 1.4rem 1.8rem;
+  border: 1.5px solid transparent;
+}
+
+.primary-cta:hover {
+  color: white;
+  background: #9360ff;
+  border: 1.5px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 0px 39.0096px #9360ff, 0px 0px 22.2912px #9360ff,
+    0px 0px 13.0032px #9360ff, 0px 0px 6.5016px #9360ff,
+    0px 0px 1.8576px #9360ff, 0px 0px 0.9288px #9360ff;
+  border-radius: 38.6em;
+}
+
+/* Right Column */
+
+.right-col {
+  margin-right: 14em;
+  width: 50%;
+}
+
+.cyber-mystic-container {
+  position: relative;
+  width: 55.2em;
+  height: 81.2em;
+}
+
+.cyber-mystic {
+  content: "";
+  height: 80.5em;
+  width: auto;
+  position: absolute;
+  right: -125px;
+  top: -125px;
+  pointer-events: none;
+}
+
+.quote-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8.3em;
+  margin-bottom: 20em;
+  padding: 3.2em 4.1em 2.5em 4.1em;
+  width: 58.9em;
+  height: 14.6em;
+  border: 1px solid black;
+  border-radius: 4.5em;
+}
+
+.quote {
+  height: 6.1rem;
+  width: 50.7rem;
+  font-size: 1.8rem;
+  font-family: "Luxurious Roman";
+  font-weight: normal;
+  font-style: italic;
+  line-height: 2.2rem;
+}
+
+.quote-author {
+  font-size: 1.8rem;
+  font-family: "Luxurious Roman";
+  font-weight: normal;
+  font-style: italic;
+  line-height: 2.2rem;
+  position: absolute;
+  left: 314px;
+  top: 93px;
+}
+
+.cloud-left {
+  position: absolute;
+  bottom: -55px;
+  left: -105px;
+}
+
+.cloud-right {
+  position: absolute;
+  bottom: -50px;
+  right: -80px;
+}

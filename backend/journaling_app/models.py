@@ -10,6 +10,7 @@ class DreamEntry(models.Model):
     inner_dynamics = models.TextField()
     interpretation = models.TextField()
     ritual = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 # class DreamImage(models.Model):

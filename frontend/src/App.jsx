@@ -9,7 +9,7 @@ import axios from "axios";
 import Account from "./TarotApp/pages/Account";
 import Dreams from "./DreamJournalApp/pages/Dreams";
 import ForgotPassword from './pages/ForgotPassword'
-import JournalEntries from "./DreamJournalApp/pages/JournalEntries";
+import JournalEntries, { loader as journalLoader } from "./DreamJournalApp/pages/JournalEntries";
 import HeroPage from "./pages/HeroPage";
 
 export async function userLoader() {
@@ -50,6 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/journal",
         element: <JournalEntries />,
+        loader: journalLoader,
       },
       {
         path: "/forgotpassword",

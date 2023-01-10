@@ -4,7 +4,18 @@
   padding-left: 42%;
   padding-bottom: 42%;
   padding-right: 42%;
+  background: url("/static/hero-page/hero-page-background.svg") no-repeat center
+      center;
+  background-size: cover;
+    overflow:hidden;
+  }
+.login-forms input:focus {
+  box-shadow: 0 0 5px blue;
 }
+.login-forms input{
+  outline: 1px solid black;
+}
+
 
 .signup-welcome {
   color: blue

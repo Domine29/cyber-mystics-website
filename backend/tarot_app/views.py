@@ -272,7 +272,7 @@ def dream_entries(request):
             interpretation = data["params"]["interpretation"]
             ritual = data["params"]["ritual"]
 
-            new_image = DreamEntry(
+            new_image = DreamEntry1(
                 user=request.user,
                 description=description, associations=associations, inner_dynamics=inner_dynamics, interpretation=interpretation, ritual=ritual)
 
@@ -282,3 +282,24 @@ def dream_entries(request):
         except Exception as e:
             print(e)
             return HttpResponse(e)
+
+    if request.method == "GET":
+        user = SiteUser.objects.get(email=request.user)
+
+        dream_entries = DreamEntry1.objects.filter(user=user).order_by('-created_at')
+
+        dreams_json = serializers.serialize('json', dream_entries)
+
+        return HttpResponse(dreams_json)
+
+@api_view(["GET"])
+def user_tarot_entries(request):
+    if request.method == "GET":
+
+        user = SiteUser.objects.get(email=request.user)
+
+        spreads = Spread.objects.filter(user=user).order_by('-date_created')
+
+        spreads_json = serializers.serialize('json', spreads)
+
+        return HttpResponse(spreads_json)

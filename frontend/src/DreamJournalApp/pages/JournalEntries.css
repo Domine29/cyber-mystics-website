@@ -42,8 +42,13 @@
   font-size: 1rem;
   font-family: "Playfair Display";
 }
-
-
 .content {
   padding: 0;
+}
+
+.entry {
+  margin-left: 2em;
+  width: fit-content;
+  text-decoration: none;
+  cursor: pointer;
 }

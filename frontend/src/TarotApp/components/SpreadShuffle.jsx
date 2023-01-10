@@ -7,7 +7,6 @@ export default function SpreadShuffle(props) {
 
   const shuffledItems = _.shuffle(props.cards.data);
 
-
   async function handleOnClick(e) {
     const cardName = e.target.alt
     let isReversed = Boolean(e.target.id)
@@ -22,7 +21,9 @@ export default function SpreadShuffle(props) {
 
 
   return (
-    <>
+    <div className="pick-card-container">
+      <h1 className ="daily-tarot-title">Daily Tarot Card</h1>
+      <p className ="daily-tarot-select-a-card">select a card to continue</p>
       <br />
       <CSSTransition
         in={true}
@@ -47,6 +48,6 @@ export default function SpreadShuffle(props) {
             })}
         </div>
       </CSSTransition>
-    </>
+    </div>
   );
 }

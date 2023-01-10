@@ -29,7 +29,7 @@ export default function JournalToC() {
           <h4 className="header">Dream Journal</h4>
           <ul className="content">
             {journalEntries.dreams.data.map((entry, i) => {
-              return <li className="">{`${i+1}. ${entry.fields.created_at}`}</li>
+              return <li href="/dream"  className="entry">{`${i+1}. Dream ${i+1}`}</li>
             })}
           </ul>
         </div>
@@ -38,7 +38,7 @@ export default function JournalToC() {
           <h4 className="header">Tarot Journal</h4>
           <ul className="content">
           {journalEntries.tarot.data.map((entry, i) => {
-              return <li className="">{`${i+1}. ${entry.fields.date_created}`}</li>
+              return <li className="entry">{`${i+1}. Spread ${i+1}`}</li>
             })}
           </ul>
         </div>

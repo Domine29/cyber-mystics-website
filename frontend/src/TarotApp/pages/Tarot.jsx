@@ -5,16 +5,18 @@ import CardCarousel from "../components/CardCarousel";
 import { Row, Col, Button } from "react-bootstrap";
 import Readings from "../components/Readings";
 import SpreadNote from "../components/SpreadNote";
+import SpreadShuffle from "../components/SpreadShuffle";
 import axios from "axios";
+import "./Tarot.css"
 
 export async function loader() {
   const cards = await getAllCards();
   return { cards };
 }
 
-export default function HomePage(props) {
+export default function TarotPage(props) {
   const { cards } = useLoaderData();
-  const [isShuffled, setIsShuffled] = useState(0);
+  // const [isShuffled, setIsShuffled] = useState(0);
   const [spreadData, setSpreadData] = useState(false);
   const [currentUser, setCurrentUser] = useState(false);
 
@@ -33,37 +35,15 @@ export default function HomePage(props) {
   return (
     <div className="tarot-page">
       <br />
-      {!isShuffled ? (
-        <Row className="home-row">
-          <Col md="auto">
-            <CardCarousel cards={cards} />
-          </Col>
-          <Col className="d-flex flex-column">
-
-            {currentUser && (
-              <Button
-                className="daily-tarot"
-                onClick={() => setIsShuffled(16)}
-                type="submit"
-                placeholder="Shuffle"
-                name="Shuffle"
-              >
-                Daily Tarot
-              </Button>
-            )}
-          </Col>
-        </Row>
-      ) : spreadData ? (
-        <SpreadNote spreadData={spreadData} />
-      ) : (
-        <Readings
+      {spreadData ? 
+      (<SpreadNote spreadData={spreadData} />)
+      : 
+      (<Readings
           user={props.user}
-          isShuffled={isShuffled}
           cards={cards}
-          setIsShuffled={setIsShuffled}
           setSpreadData={setSpreadData}
-        />
-      )}
+      />) 
+      }
     </div>
   );
 }

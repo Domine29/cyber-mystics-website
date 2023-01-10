@@ -1,5 +1,15 @@
-#account{
-    height: 100vh;
-    width:100%;
-    padding:1rem;
+#profile-card{
+    background: url("/static/hero-page/hero-page-background.svg") no-repeat center
+    center;
+background-size: cover;
+}
+#cell-modal-get-code-btn{
+    margin-left: 1%;
+    background-color: #9360ff !important;
+    color: white !important;
+}
+#cell-modal-verify-code-btn{
+    margin-left: 1%;
+    background-color: #9360ff !important;
+    color: white !important;
 }

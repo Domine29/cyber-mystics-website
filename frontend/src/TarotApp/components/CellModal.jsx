@@ -47,11 +47,11 @@ export default function CellModal(props){
         
         <InputGroup className="mb-3">
             <Form.Control value={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)} maxLength={10} placeholder="Enter your Cell number (US ONLY!)"/>
-            <Button variant="outline-secondary" id="button-addon2"  onClick={handleClick}>Verify</Button>
+            <Button  variant="outline-secondary" id="cell-modal-get-code-btn"  onClick={handleClick}>Get Code</Button>
         </InputGroup>:
         <InputGroup>
             <Form.Control value={auth1} onChange={(e)=>setAuth1(e.target.value)} maxLength={6}></Form.Control>
-            <Button onClick={checkCode}>Check Code</Button>
+            <Button id="cell-modal-verify-code-btn" onClick={checkCode}>Check Code</Button>
         </InputGroup>}
     </Modal.Body>
 </Modal>)

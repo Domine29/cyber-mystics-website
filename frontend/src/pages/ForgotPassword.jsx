@@ -76,7 +76,7 @@ function ForgotPassword() {
               <InputGroup>
             <Form.Control {...register('password')}>
             </Form.Control>
-             <Button onClick={handleSubmit((data)=>{sumbitNewPassword(data['password'],data['phoneNumber'])})}>Submit New Password</Button>
+             <Button id='new-password-button' onClick={handleSubmit((data)=>{sumbitNewPassword(data['password'],data['phoneNumber'])})}>Submit New Password</Button>
             </InputGroup>
             </Form.Group>
             </Modal.Body>

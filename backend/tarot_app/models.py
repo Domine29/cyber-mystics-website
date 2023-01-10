@@ -46,3 +46,12 @@ class Note(models.Model):
 class OverallNote(models.Model):
     spread = models.ForeignKey(Spread, on_delete=models.CASCADE)
     content = models.TextField()
+
+class DreamEntry(models.Model):
+    user = models.EmailField()
+    date = models.DateField(auto_now_add=True)
+    description = models.TextField()
+    associations = models.TextField()
+    inner_dynamics = models.TextField()
+    interpretation = models.TextField()
+    ritual = models.TextField()

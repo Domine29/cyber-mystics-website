@@ -15,6 +15,7 @@ urlpatterns = [
     path('api/reading', views.get_reading),
     path('api/note', views.update_note),
     path('api/dream', views.dream_entries),
+    path('api/dream/<int:number>', views.dream_entries),
     path('api/tarot_spread', views.user_tarot_entries),
     path('api/notes/<int:number>', views.get_user_notes),
     path('api/third_party', views.third_party_api),

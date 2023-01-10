@@ -1,8 +1,49 @@
-.journal-toc {
-  text-align: center;
+.journal-page {
+  min-height: 100%;
+  min-width: 100%;
+  margin: -11em auto;
+  background: url("/static/hero-page/hero-page-background.svg") no-repeat center
+    center;
+  background-size: cover;
+  overflow: hidden;
 }
 
-.journal-entry {
+.journal-toc {
+  font-family: "Luxurious Roman";
+  font-size: 1.8rem;
+  margin: 8.5em auto auto auto;
+  text-align: center;
+  border: 3px solid #9360ff;
+  border-radius: 1.0625rem 1.0625rem 0 0;
   width: 80%;
-  cursor: pointer;
+}
+
+.line {
+  width: 3px;
+  height: 85%;
+  background-color: #9360ff;
+}
+
+.journal {
+  display: flex;
+  flex-direction: row;
+  margin: auto auto 10em auto;
+  width: 80%;
+  border: 3px solid #9360ff;
+  border-radius: 0 0 1.0625rem 1.0625rem;
+  height: 20em;
+}
+
+.entries {
+  text-align: center;
+  margin: 0em .5em 0em .5em;
+  padding-top: .5em;
+  width: 50%;
+  font-size: 1rem;
+  font-family: "Playfair Display";
+}
+
+
+.content {
+  padding: 0;
 }

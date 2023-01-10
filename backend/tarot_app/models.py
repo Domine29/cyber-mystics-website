@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 from django.db.models import JSONField
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 
 class SiteUser(AbstractUser):
@@ -41,13 +42,14 @@ class Note(models.Model):
     card_in_spread = models.ForeignKey(CardInSpread, on_delete=models.CASCADE)
     description = models.TextField()
     interpretation = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
 
 class OverallNote(models.Model):
     spread = models.ForeignKey(Spread, on_delete=models.CASCADE)
     content = models.TextField()
 
-class DreamEntry(models.Model):
+class DreamEntry1(models.Model):
     user = models.EmailField()
     date = models.DateField(auto_now_add=True)
     description = models.TextField()
@@ -55,3 +57,4 @@ class DreamEntry(models.Model):
     inner_dynamics = models.TextField()
     interpretation = models.TextField()
     ritual = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)

@@ -1,15 +1,31 @@
+html {
+  font-size: 62.5%;
+}
+
+/* .main {
+  background-image: url("../../../public/images/background.png");
+  background-size: cover;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 auto;
+  font-family: "Poppins";
+  display: flex;
+} */
+
 .tarot-shuffle {
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.654);
+  box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.654);
   border-radius: 2%;
-  height: 18em;
+  height: 14.6em;
   width: auto;
   border: 0.25px solid #CEBCA3;
-  position: absolute;
+  align-content: center;
+  position: relative;
+  margin-left: -5rem;
 }
 
 .tarot-shuffle:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-  /* transform:translateY(10px) !important */
+  transform:translateY(10px) !important
 }
 
 #card-orientation {
@@ -19,12 +35,6 @@
 .select-spread-form {
   margin-top: 40px;
   display: inline-block;
-}
-
-.card-shuffle {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
 }
 
 .tarot-imgs {
@@ -47,29 +57,17 @@
   margin-right: auto;
 }
 
-.spread-note-container {
-  height: 600px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
-}
-
 .note-content{
   display: flex;
   flex-direction: column;
 }
 
-.vertical-line {
-  width: 3px;
-  height: 85%;
-  background-color: black;
-}
-
 .note-form {
-  padding-top: 20px;
-  padding-bottom: 20px;
   width: 500px;
+  font-size: 16px;
+  font-family: "poppins";
+  padding: 1em 2em;
+  text-align: center;
 }
 
 .upright {
@@ -89,17 +87,7 @@
   transform: rotate(180deg);
 }
 
-.guidance-content {
-  padding-bottom: 10%;
-  text-transform: capitalize;
-  list-style-type:circle;
-  width: 400px
-}
-
 .cat-img {
   width: 100%;
   height: auto;
 }
-
-
-

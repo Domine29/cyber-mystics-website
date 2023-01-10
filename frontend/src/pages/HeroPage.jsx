@@ -1,4 +1,5 @@
 import "./HeroPage.css";
+import "../TarotApp/pages/Tarot.jsx"
 
 export default function HeroPage() {
   return (
@@ -13,7 +14,7 @@ export default function HeroPage() {
               literature, mythologies, and tarot.
             </p>
             <div className="cta-btns">
-              <a href="#" className="primary-cta">
+              <a href="/tarot" className="primary-cta">
                 Daily Tarot
               </a>
               <a href="#" className="primary-cta">

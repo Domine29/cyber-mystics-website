@@ -14,22 +14,32 @@ export default function SpreadGuidance(props) {
 
   return (
     <>
-      <ul className="guidance-notes">
-        <li>Keywords:</li>
-        <ul className="guidance-content">
+      <div className="guidance">
+        <p className="guidance-subtitles">Keywords</p>
+        <div className="guidance-content-wrapper">
+        <div className="guidance-content">
+          <br/>
           {props.spreadData.keywords.map((word) => (
-            <li>{word}</li>
+            <p>{word}</p>
           ))}
-        </ul>
-        <li>Questions to Ask:</li>
-        <ul className="guidance-content">
+        </div>
+        </div>
+        <br/>
+        <p className="guidance-subtitles">Questions to Ask</p>
+        <div className="guidance-content-wrapper">
+        <div className="guidance-content">
+          <br/>
           {props.spreadData.questions_to_ask.map((question) => (
-            <li>{question}</li>
+            <p>{question}<br/></p>
           ))}
-        </ul>
-        <li></li>
-      </ul>
-        <Button onClick={getInspiration} className="ask-the-oracle">Ask the Oracle</Button>
+        </div>
+        </div>
+        <br/>
+      </div>
+        {/* <Button onClick={getInspiration} className="ask-the-oracle">Ask the Oracle</Button> */}
+        <div className="cta-btns">
+          <a className="ask-oracle-btn" onClick={getInspiration}>Ask the Oracle</a>
+        </div>
         <ApiModal show={apiData} onHide={() => setApiData(false)} apiData={apiData}/>
         <br/>
         {props.handleClick && <Button onClick={props.handleClick} className="delete-reading-btn" variant="danger">Delete Reading</Button>}

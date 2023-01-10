@@ -1,13 +1,9 @@
+
 .login-forms {
   margin: auto;
-  padding-top: 3%;
-  padding-left: 42%;
-  padding-bottom: 42%;
-  padding-right: 42%;
-  background: url("/static/hero-page/hero-page-background.svg") no-repeat center
-      center;
-  background-size: cover;
-    overflow:hidden;
+  width: 50%;
+  height: 50%;
+ 
     font-family: "Poppins";
     text-transform: uppercase;
   }
@@ -15,6 +11,7 @@
     background-color: #9360ff !important;
     color: white !important;
   }
+ 
 .login-forms input:focus {
   box-shadow: 0 0 5px blue;
 }
@@ -42,4 +39,11 @@
 }
 .error {
   color: rgb(255, 0, 0)
+}
+div .tab-content form{
+  justify-content:center
+}
+div .tab-content form{
+  margin-left: 0;
+  margin-right: 0;
 }

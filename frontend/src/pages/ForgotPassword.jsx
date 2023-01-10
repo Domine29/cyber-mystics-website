@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, Form, Button, Alert, Modal,InputGroup } from 'react-bootstrap';
 import { useForm} from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import "./ForgotPassword.css";
 function ForgotPassword() {
   const { register, formState: { errors }, handleSubmit } = useForm({
     mode: "onSubmit",
@@ -31,33 +31,33 @@ function ForgotPassword() {
       });
   }
 
-  return (
-    <Card className="mx-auto w-50 bg-light shadow rounded mb-4">
-        <Card.Header className="text-center">Forgot Password</Card.Header>
+  return (<div className='forgot-password-body'>
+    <Card id='forgot-password-card' className="mx-auto w-50 bg-light shadow rounded mb-4">
+        <Card.Header className="text-center">IDENTITY VERIFICATION</Card.Header>
       <Card.Body>
        {errors.phoneNumber && <Alert variant="danger">A valid phone number is required</Alert>}
-        {/* {success && <Alert variant="success">{success}</Alert>} */}
-        <Form onSubmit={handleSubmit}>
+        
+        <Form id='forgot-password-form' onSubmit={handleSubmit}>
           <Form.Group className="mb-4">
-            <Form.Label className="w-70">10 Digit Phone Number </Form.Label>
+            <Form.Label className="w-70"> YOUR PHONE NUMBER </Form.Label>
             <Form.Control className="w-70" type="tel"  {...register("phoneNumber", {pattern:/^[0-9]{10}$/})} />
             
           </Form.Group>
           <div className="d-grid">
-          <Button size="lg"  onClick={handleSubmit((data)=> getOTP(data))}>Send Reset Link</Button>
+          <Button id='reset-button' size="lg"  onClick={handleSubmit((data)=> getOTP(data))}>Get Verification Code</Button>
           </div>
-        </Form>
+        </Form >
         
         <Modal show={showOTP} onHide={()=>setShowOTP(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Enter Your The Code Sent to Your Cellphone</Modal.Title>
+          <Modal.Title>Enter Your The Code <br/> Sent to Your Cellphone</Modal.Title>
         </Modal.Header>
           <Modal.Body>
              <Form.Group>
               <InputGroup>
             <Form.Control {...register('OTP')} maxLength={6}>
             </Form.Control>
-             <Button onClick={handleSubmit((data) => {
+             <Button id='check-code-button' onClick={handleSubmit((data) => {
                             if (data['OTP'] == OTP) {
                                                     setShowOTP(false);
                                                     setShowPaswordModal(true);
@@ -83,6 +83,7 @@ function ForgotPassword() {
         </Modal> 
       </Card.Body>
     </Card>
+    </div>
   );
 }
 

@@ -9,24 +9,32 @@ import json
 import random
 import requests
 from decouple import config
+from .serializers import *
 
-twillio_account_sid=config('twillio_account_sid')
-twillio_auth_token=config('twillio_auth_token')
-twillio_number=config('twillio_number')
+
+twillio_account_sid = config('twillio_account_sid')
+twillio_auth_token = config('twillio_auth_token')
+twillio_number = config('twillio_number')
+
+
 def index(request):
     theIndex = open('static/index.html').read()
     return HttpResponse(theIndex)
+
+
 @api_view(['POST'])
 def set2fa(request):
-    phone_number=request.data['phoneNumber']
-    client = Client(twillio_account_sid,twillio_auth_token)
-    auth_number =random.randint(100000, 999999)
+    phone_number = request.data['phoneNumber']
+    client = Client(twillio_account_sid, twillio_auth_token)
+    auth_number = random.randint(100000, 999999)
     message = client.messages.create(
-            body=f'Your authentication number is: {auth_number}',
-            from_=twillio_number,
-            to=f'+1{phone_number}'
-                )
-    return JsonResponse({'OTP':auth_number})
+        body=f'Your authentication number is: {auth_number}',
+        from_=twillio_number,
+        to=f'+1{phone_number}'
+    )
+    return JsonResponse({'OTP': auth_number})
+
+
 @api_view(["GET"])
 def load_cards(request):
     if request.method == "GET":
@@ -41,11 +49,12 @@ def register_user(request):
     if request.method == "POST":
         email = request.data['email']
         password = request.data['password']
-        first_name=request.data['firstName']
-        last_name=request.data['lastName']
-        phone_number=request.data['phoneNumber']
+        first_name = request.data['firstName']
+        last_name = request.data['lastName']
+        phone_number = request.data['phoneNumber']
         try:
-            SiteUser.objects.create_user(email=email, password=password, username=email,cell_phone_number=phone_number,first_name=first_name,last_name=last_name)
+            SiteUser.objects.create_user(email=email, password=password, username=email,
+                                         cell_phone_number=phone_number, first_name=first_name, last_name=last_name)
             return JsonResponse({'success': True})
         except Exception as e:
             return HttpResponse("A user with that email already exists.", status=409)
@@ -85,57 +94,62 @@ def current_user(request):
         return HttpResponse(data)
     else:
         return JsonResponse(None, safe=False)
+
+
 @api_view(['PUT'])
 def set_name(request):
-    first_or_last_name=next(iter(request.data))
-    setattr(request.user, first_or_last_name,request.data[first_or_last_name])
+    first_or_last_name = next(iter(request.data))
+    setattr(request.user, first_or_last_name, request.data[first_or_last_name])
     request.user.save()
     return HttpResponse('ok')
 
+
 @api_view(['PUT'])
 def set_password(request):
-    user=SiteUser.objects.get(cell_phone_number=request.data['phoneNumber'])
+    user = SiteUser.objects.get(cell_phone_number=request.data['phoneNumber'])
     user.set_password(request.data['password'])
     try:
         user.save()
-        return JsonResponse({"message":"password changed"})
+        return JsonResponse({"message": "password changed"})
     except Exception as e:
-        return JsonResponse({"message":e})
+        return JsonResponse({"message": e})
+
 
 @api_view(['POST'])
 def set_cell(request):
-   
+
     if request.data["code"] == False:
-        phone_number=request.data['phoneNumber']
-        client = Client(twillio_account_sid,twillio_auth_token)
-        auth_number =random.randint(100000, 999999)
-        request.user.phone_code=auth_number
+        phone_number = request.data['phoneNumber']
+        client = Client(twillio_account_sid, twillio_auth_token)
+        auth_number = random.randint(100000, 999999)
+        request.user.phone_code = auth_number
         request.user.save()
         message = client.messages.create(
-                body=f'Your authentication number is: {auth_number}',
-                from_=twillio_number,
-                to=f'+1{phone_number}'
-                    )
+            body=f'Your authentication number is: {auth_number}',
+            from_=twillio_number,
+            to=f'+1{phone_number}'
+        )
         return HttpResponse('')
     else:
-        if (int(request.data["code"])==request.user.phone_code):
-            request.user.cell_phone_number=request.data['phoneNumber']
+        if (int(request.data["code"]) == request.user.phone_code):
+            request.user.cell_phone_number = request.data['phoneNumber']
             request.user.save()
-            message="new phone saved"
-            return JsonResponse({'message':message})
-            
+            message = "new phone saved"
+            return JsonResponse({'message': message})
+
         else:
-            message="incorrect code"
-            return JsonResponse({'message':message}, status=400)
+            message = "incorrect code"
+            return JsonResponse({'message': message}, status=400)
+
 
 @api_view(["GET"])
 def user_account(request):
-    user=request.user
-    accountDetails={
-        "first_name":None,
-        "last_name":None,
-        "email":None,
-        "cell_phone_number":None
+    user = request.user
+    accountDetails = {
+        "first_name": None,
+        "last_name": None,
+        "email": None,
+        "cell_phone_number": None
     }
     for key, val in accountDetails.items():
         try:
@@ -261,6 +275,7 @@ def delete_spread(request, spread_id):
 
     return JsonResponse({'success': True})
 
+
 @api_view(["GET", "POST"])
 def dream_entries(request):
     if request.method == "POST":
@@ -282,3 +297,12 @@ def dream_entries(request):
         except Exception as e:
             print(e)
             return HttpResponse(e)
+
+    if request.method == "GET":
+        print("getting entries")
+
+        user = request.user
+        entries = DreamEntry.objects.filter(user=user)
+
+        serializer = DreamEntrySerializer(entries, many=True)
+        return Response(serializer.data)

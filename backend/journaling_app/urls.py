@@ -1,7 +1,6 @@
-from django.urls import path, re_path
-from . import views
+# from django.urls import path, re_path
+# from . import views
 
-urlpatterns = [
-    path('api/dream', views.dream_entries),
-]
-
+# urlpatterns = [
+#     path('api/dream', views.dream_entries),
+# ]

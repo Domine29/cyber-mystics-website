@@ -4,8 +4,10 @@ from rest_framework.decorators import api_view
 
 # Create your views here.
 
+
 @api_view(["GET", "POST"])
 def dream_entries(request):
+    print(request)
     if request.method == "POST":
         try:
             data = request.data
@@ -25,3 +27,7 @@ def dream_entries(request):
         except Exception as e:
             print(e)
             return HttpResponse(e)
+
+    if request.method == "get":
+        print("getting entries")
+        return JsonResponse({'success': True})

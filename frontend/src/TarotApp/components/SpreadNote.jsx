@@ -18,26 +18,30 @@ export default function SpreadNote(props) {
   };
 
   return (
-    <div>
+    <div className="spread-note-wrapper">
+      
       {props.spreadData && 
         <div className="spread-note-container">
-        <img
-          src={`/static/cards/${props.spreadData.img}`}
-          alt={props.spreadData.tarot_name}
-          className={props.spreadData.reverse ? "reversed" : "upright"}
-        />
-        <div className="note-content">
+          <div className="your-card">
+          <h3 className="daily-tarot-subtitles">your card</h3>
+          <img
+            src={`/static/cards/${props.spreadData.img}`}
+            alt={props.spreadData.tarot_name}
+            className={props.spreadData.reverse ? "reversed" : "upright"}
+          />
+          </div>
+          <div className="your-guidance">
+          <h3 className="daily-tarot-subtitles">your guidance</h3>
           <SpreadGuidance
             spreadData={props.spreadData}
             handleClick={props.handleClick}
           />
-        </div>
+          </div>
 
-        <div className="vertical-line" />
-
-        <div className="note-content">
-          <NoteForm spreadData={props.spreadData} />
-        </div>
+          <div className="your-notes">
+            <h3 className="daily-tarot-subtitles">your notes</h3>
+            <NoteForm spreadData={props.spreadData} />
+          </div>
       </div>
       }
       

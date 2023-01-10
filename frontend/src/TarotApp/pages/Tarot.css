@@ -1,0 +1,185 @@
+.tarot-page {
+    background-image: url("../../../public/images/background.png");
+    background-size: cover;
+    height: auto!important;
+    margin: 0 auto;
+    padding: 0 auto;
+    font-family: "Poppins";
+    display: flex;
+  }
+
+.pick-card-container {
+  max-width: 1200px;
+  height: auto!important;
+  margin: 0 auto;
+  gap: 8em;
+  margin-top: 2em;
+}
+
+.daily-tarot-title {
+  color: black;
+  font-family: "Playfair Display";
+  font-size: 4rem;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+.daily-tarot-subtitles {
+  font-family:"Playfair Display";
+  font-size: 3rem;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+}
+
+.daily-tarot-select-a-card {
+  font-family:"Playfair Display";
+  font-size: 2rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.card-shuffle {
+  align-content: flex-start;
+}
+
+.cards-container {
+  /* max-width: 1200px;
+  margin: 0 auto;
+  gap: 8em;
+  margin-top: 10em;
+  text-align: center; */
+}
+
+.spread-note-wrapper {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  gap: 8em;
+  margin-top: 2em;
+}
+
+.spread-note-container {
+  width: 100%;
+  height: 100%!important;
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 4em;
+  margin-bottom: 2em;
+}
+
+.guidance-content-wrapper {
+  background-color: rgb(209, 216, 252);
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 2em;
+  padding-left: 2em;
+  margin-top: 1em;
+}
+
+.guidance-content {
+  text-align: center;
+  list-style-type:circle;
+}
+
+.guidance {
+  text-align: center;
+  font-family: "poppins";
+  font-size: 1.6rem;
+}
+
+.guidance-subtitles {
+  color: black;
+  font-family: "playfair display";
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 0; 
+  text-align: center;
+  width: 100%;
+}
+
+.your-card {
+  color: black;
+  font-family: "playfair display";
+  font-weight: normal;
+  letter-spacing: 0; 
+  text-align: center;
+}
+
+.your-guidance {
+  color: black;
+  font-family: "playfair display";
+  font-weight: normal;
+  letter-spacing: 0; 
+  text-align: center;
+}
+
+.your-notes {
+  color: black;
+  font-family: "playfair display";
+  font-weight: normal;
+  letter-spacing: 0; 
+  text-align: center;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 5.7em;
+  margin-top: 4.7em;
+  margin-left: 10em;
+  position: relative;
+}
+
+.ask-oracle-btn {
+  width: auto;
+  background-color: #9360ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  border-radius: 38.6em;
+  padding: 1.4rem 1.8rem;
+  border: 1.5px solid transparent;
+}
+
+.note-form-save-btn {
+  width: auto;
+  background-color: #9360ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  border-radius: 38.6em;
+  padding: 1.4rem 1.8rem;
+  border: 1.5px solid transparent;
+}
+
+/* Microinteractions */
+.ask-oracle-btn:hover {
+  color: white;
+  background: #9360ff;
+  border: 1.5px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 0px 39.0096px #9360ff, 0px 0px 22.2912px #9360ff,
+    0px 0px 13.0032px #9360ff, 0px 0px 6.5016px #9360ff,
+    0px 0px 1.8576px #9360ff, 0px 0px 0.9288px #9360ff;
+  border-radius: 38.6em;
+}
+
+.note-form-save-btn:hover {
+  color: white;
+  background: #9360ff;
+  border: 1.5px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 0px 39.0096px #9360ff, 0px 0px 22.2912px #9360ff,
+    0px 0px 13.0032px #9360ff, 0px 0px 6.5016px #9360ff,
+    0px 0px 1.8576px #9360ff, 0px 0px 0.9288px #9360ff;
+  border-radius: 38.6em;
+}

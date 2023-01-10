@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
-import "./MainNavigation.css"
+import "./MainNavigation.css";
 
 function MainNavigation(props) {
   const navigate = useNavigate();
@@ -57,9 +57,15 @@ function MainNavigation(props) {
                 <a href="/account">ACCOUNT</a>
               </li>
             )}
-            <li>
-              <a href="/login">LOGIN</a>
-            </li>
+            {props.user ? (
+              <li style={{cursor: "pointer"}}>
+                <a onClick={logout}>LOGOUT</a>
+              </li>
+            ) : (
+              <li>
+                <a href="/login">LOGIN</a>
+              </li>
+            )}
           </ul>
         </nav>
       </header>

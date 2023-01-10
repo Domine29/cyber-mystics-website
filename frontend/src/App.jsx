@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage, { loader as cardLoader } from "./TarotApp/pages/Home";
+// import HomePage, { loader as cardLoader } from "./TarotApp/pages/Home";
+import Tarot, { loader as cardLoader} from "./TarotApp/pages/Tarot";
 import NotesPage from "./TarotApp/pages/TarotSpreads";
 import RootLayout from "./pages/RootLayout";
 import Login from "./TarotApp/pages/Login";
@@ -8,7 +9,7 @@ import axios from "axios";
 import Account from "./TarotApp/pages/Account";
 import Dreams from "./DreamJournalApp/pages/Dreams";
 import ForgotPassword from './pages/ForgotPassword'
-import JournalEntries from "./DreamJournalApp/pages/JournalEntries";
+import JournalEntries, { loader as journalLoader } from "./DreamJournalApp/pages/JournalEntries";
 import HeroPage from "./pages/HeroPage";
 
 export async function userLoader() {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/tarot",
-        element: <NotesPage />,
+        // element: <NotesPage />,
+        element: <Tarot />,
+        loader: cardLoader
       },
       {
         path: "/dream",
@@ -47,6 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/journal",
         element: <JournalEntries />,
+        loader: journalLoader,
       },
       {
         path: "/forgotpassword",

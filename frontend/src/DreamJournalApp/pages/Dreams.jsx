@@ -1,8 +1,6 @@
 import DreamDescription from "../components/DreamDescription";
 import DreamPageHeader from "../components/DreamPageHeader";
 import "./Dreams.css";
-
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
 import { useRef, useState } from "react";
 import axios from "axios";

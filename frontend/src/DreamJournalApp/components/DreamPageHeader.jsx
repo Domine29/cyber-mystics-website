@@ -4,11 +4,11 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 export default function DreamPageHeader() {
   return (
-    <Card>
+    <div className="card-headline">
       <Card.Header className="journal-card-header">
         Dramatis Personae
       </Card.Header>
-      <Card.Body>
+      <Card.Body className="content-nav">
         <ListGroup horizontal className="dream-imgs">
           <ListGroup.Item>Dream Image</ListGroup.Item>
           <ListGroup.Item onClick="" s style={{ cursor: "pointer" }}>
@@ -17,6 +17,6 @@ export default function DreamPageHeader() {
         </ListGroup>
         <Button className="guidance-button">Guidance</Button>
       </Card.Body>
-    </Card>
+    </div>
   );
 }

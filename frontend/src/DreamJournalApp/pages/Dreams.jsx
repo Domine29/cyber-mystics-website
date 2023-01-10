@@ -35,31 +35,40 @@ export default function DreamsPage() {
   }
 
   return (
-    <Card className="journal-card">
-      <DreamPageHeader />
-      <br />
-      <h5 className="headers">Description</h5>
-      <DreamDescription text={description} />
-      <h5 className="headers">Association</h5>
-      <DreamDescription text={association} />
-      <h5 className="headers">Inner Dynamics</h5>
-      <DreamDescription text={innerDynamics} />
-      {show ? (
-        <>
-          <h5 className="headers">Interpretation</h5>
-          <DreamDescription text={interpretation} />
-          <h5 className="headers">Ritual</h5>
-          <DreamDescription text={ritual} />
-        </>
-      ) : null}
-      {show ? (
-        <>
-          <Button onClick={() => saveDreamEntry()}>Save</Button>
-          <Button onClick={() => setShow(!show)}>Back</Button>
-        </>
-      ) : (
-        <Button onClick={() => setShow(!show)}>Next</Button>
-      )}
-    </Card>
+    <div className="dream-page">
+      <div className="journal-card">
+        <DreamPageHeader />
+        <h5 className="headers">Description</h5>
+        <DreamDescription text={description} />
+        <h5 className="headers">Association</h5>
+        <DreamDescription text={association} />
+        <h5 className="headers">Inner Dynamics</h5>
+        <DreamDescription text={innerDynamics} />
+        {show ? (
+          <>
+            <h5 className="headers">Interpretation</h5>
+            <DreamDescription text={interpretation} />
+            <h5 className="headers">Ritual</h5>
+            <DreamDescription text={ritual} />
+          </>
+        ) : null}
+        {show ? (
+          <div className="btn-container">
+            <Button className="dream-page-btn" onClick={() => saveDreamEntry()}>
+              Save
+            </Button>
+            <Button className="dream-page-btn" onClick={() => setShow(!show)}>
+              Back
+            </Button>
+          </div>
+        ) : (
+          <div className="btn-container">
+            <Button className="dream-page-btn" onClick={() => setShow(!show)}>
+              Next
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

@@ -24,6 +24,7 @@ body {
 .hero-section {
   display: flex;
   margin-top: 2.125em;
+  margin-bottom: .3em;
 }
 
 .left-col {
@@ -109,7 +110,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 5.1875em;
-  margin-bottom: 12.5em;
+  margin-bottom: 13.5em;
   padding: 2em 2.5625em 1.5625em 2.5625em;
   width: 36.8125em;
   height: 9.125em;

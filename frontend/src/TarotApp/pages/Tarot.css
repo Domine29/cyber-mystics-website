@@ -2,41 +2,39 @@
     background-image: url("../../../public/images/background.png");
     background-size: cover;
     height: auto!important;
-    margin: 0 auto;
+    margin: -9em auto;
     padding: 0 auto;
-    font-family: "Poppins";
+    font-family: "Luxurious Roman";
     display: flex;
   }
 
 .pick-card-container {
-  max-width: 1200px;
+  min-width: 80%;
   height: auto!important;
-  margin: 0 auto;
+  margin: 0 3em 10em 9em;
   gap: 8em;
   margin-top: 2em;
 }
 
 .daily-tarot-title {
   color: black;
-  font-family: "Playfair Display";
-  font-size: 4rem;
+  font-family: "Luxurious Roman";
+  font-size: 1.8rem;
   font-weight: normal;
-  margin: 0;
+  margin: 6em 0em 0em 0em;
   text-align: center;
   width: 100%;
-  margin-top: 0.5em;
 }
 
 .daily-tarot-subtitles {
   font-family:"Playfair Display";
-  font-size: 3rem;
+  font-size: 1.5rem;
   margin-bottom: 1em;
   margin-top: 0.5em;
 }
 
 .daily-tarot-select-a-card {
   font-family:"Playfair Display";
-  font-size: 2rem;
   margin-top: 1em;
   margin-bottom: 1em;
   text-align: center;
@@ -44,6 +42,24 @@
 
 .card-shuffle {
   align-content: flex-start;
+  margin-bottom: 10em;
+}
+
+.tarot-shuffle {
+  box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.654);
+  border-radius: 2%;
+  height: 12.75em;
+  width: auto;
+  border: 0.25px solid #CEBCA3;
+  align-content: center;
+  position: relative;
+  margin-left: -5rem;
+  margin-bottom: 2.5em;
+}
+
+.tarot-shuffle:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+  transform:translateY(10px) !important
 }
 
 .cards-container {
@@ -55,14 +71,15 @@
 }
 
 .spread-note-wrapper {
-  max-width: 1200px;
+  min-width: 100%;
   height: 100%;
-  margin: 0 auto;
   gap: 8em;
   margin-top: 2em;
 }
 
 .spread-note-container {
+  padding: 0 5em 0 5em;
+  margin-top: 12em;
   width: 100%;
   height: 100%!important;
   min-height: 100%;
@@ -73,6 +90,7 @@
   gap: 4em;
   margin-bottom: 2em;
 }
+
 
 .guidance-content-wrapper {
   background-color: rgb(209, 216, 252);
@@ -99,7 +117,7 @@
   color: black;
   font-family: "playfair display";
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
   letter-spacing: 0; 
   text-align: center;
   width: 100%;

@@ -43,7 +43,9 @@ export default function JournalToC() {
           </ul>
         </div>
       </div>
-
+      <div className="display-entry">
+        <p className="hello">Hello</p>
+      </div>
     </div>
   );
 }

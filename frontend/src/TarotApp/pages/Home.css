@@ -1,6 +1,3 @@
-html {
-  font-size: 62.5%;
-}
 
 /* .main {
   background-image: url("../../../public/images/background.png");
@@ -12,21 +9,7 @@ html {
   display: flex;
 } */
 
-.tarot-shuffle {
-  box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.654);
-  border-radius: 2%;
-  height: 14.6em;
-  width: auto;
-  border: 0.25px solid #CEBCA3;
-  align-content: center;
-  position: relative;
-  margin-left: -5rem;
-}
 
-.tarot-shuffle:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-  transform:translateY(10px) !important
-}
 
 #card-orientation {
   transform: scaleY(-1)

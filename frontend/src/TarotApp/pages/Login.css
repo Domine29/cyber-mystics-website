@@ -1,5 +1,5 @@
-.login-forms {
-  margin: auto;
+.login-page {
+  margin: -7em auto;
   padding-top: 3%;
   padding-left: 42%;
   padding-bottom: 42%;
@@ -8,9 +8,14 @@
       center;
   background-size: cover;
     overflow:hidden;
-  }
+}
+
+.login-forms {
+  margin-top: 8em;
+}
+
 .login-forms input:focus {
-  box-shadow: 0 0 5px blue;
+  box-shadow: 0 0 5px #9360ff;
 }
 .login-forms input{
   outline: 1px solid black;
@@ -21,5 +26,5 @@
   color: blue
 }
 .error {
-  color: rgb(255, 0, 0)
+  color: #9360ff
 }

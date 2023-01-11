@@ -1,5 +1,17 @@
+
+
 #account{
-    height: 100vh;
-    width:100%;
+    min-height: 100%;
+    min-width: 100%;
+    margin: -10em auto;
+    background: url("/static/hero-page/hero-page-background.svg") no-repeat center
+      center;
+    background-size: cover;
+    overflow: hidden;
     padding:1rem;
+}
+
+.container {
+    margin-top: 12em;
+    margin-bottom: 35em;
 }

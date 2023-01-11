@@ -27,7 +27,7 @@
 .journal {
   display: flex;
   flex-direction: row;
-  margin: auto auto 10em auto;
+  margin: auto auto 1em auto;
   width: 80%;
   border: 3px solid #9360ff;
   border-radius: 0 0 1.0625rem 1.0625rem;
@@ -51,4 +51,10 @@
   width: fit-content;
   text-decoration: none;
   cursor: pointer;
+}
+
+.display-entry {
+  align-items: center;
+  width: 80%;
+  margin-bottom: 5em;
 }

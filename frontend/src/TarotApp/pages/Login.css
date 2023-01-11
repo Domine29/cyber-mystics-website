@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .login-page {
   margin: -7em auto;
   padding-top: 3%;
@@ -14,11 +15,41 @@
   margin-top: 8em;
 }
 
+=======
+
+.login-forms {
+  margin: auto;
+  width: 50%;
+  height: 50%;
+ 
+    font-family: "Poppins";
+    text-transform: uppercase;
+  }
+  .login-forms button{
+    background-color: #9360ff !important;
+    color: white !important;
+  }
+ 
+>>>>>>> origin
 .login-forms input:focus {
   box-shadow: 0 0 5px #9360ff;
 }
 .login-forms input{
   outline: 1px solid black;
+  background-color: white !important;
+}
+.login-forms label{
+  font-weight: 400;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  box-shadow: 0 0 2px  blue !important;
+  
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs{
+  font-weight: 500;
+  color: black !important;
+  text-decoration: none !important;
 }
 
 
@@ -27,4 +58,11 @@
 }
 .error {
   color: #9360ff
+}
+div .tab-content form{
+  justify-content:center
+}
+div .tab-content form{
+  margin-left: 0;
+  margin-right: 0;
 }

@@ -120,7 +120,7 @@ export default function SignUpForm() {
               <InputGroup>
             <Form.Control {...register('OTP')} maxLength={6}>
             </Form.Control>
-             <Button onClick={handleSubmit((data)=>{if(data['OTP']==OTP){signUpUserStep2(data)}})}>Check Code</Button>
+             <Button id="signup-check-code" onClick={handleSubmit((data)=>{if(data['OTP']==OTP){signUpUserStep2(data)}})}>Check Code</Button>
             </InputGroup>
             </Form.Group>
             
